@@ -2,10 +2,10 @@ FROM node:alpine
 
 WORKDIR /app
 
-COPY package*.json /app/
-RUN npm install --no-optional
+COPY package.json yarn.lock /app/
+RUN yarn install
 COPY . .
 
 EXPOSE 5000
 
-ENTRYPOINT ["npm", "start"]
+ENTRYPOINT ["yarn", "start"]
