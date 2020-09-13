@@ -1,13 +1,13 @@
 version: "3.8"
 services:
-  client:
+  blog:
     tty: true
     stdin_open: true
-    container_name: client
+    container_name: blog
     build:
-      context: ./client/
+      context: ./blog/
     ports:
       - 5000:3000
     volumes:
-      - ./client/:/app
+      - ./blog/:/app
       - /app/node_modules

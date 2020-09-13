@@ -8,4 +8,4 @@ COPY . .
 
 EXPOSE 5000
 
-ENTRYPOINT ["yarn", "start"]
+ENTRYPOINT ["yarn", "dev"]
