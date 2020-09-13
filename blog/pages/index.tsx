@@ -1,16 +1,10 @@
-import React from "react";
-import Head from "next/head";
-import { Feed } from "../components/Feed";
+import styled from "styled-components";
 
-export default function Front() {
-  return (
-    <>
-      <Head>
-        <title>Front page of the internet</title>
-      </Head>
-      <main>
-        <Feed />
-      </main>
-    </>
-  );
+const Title = styled.h1`
+  color: red;
+  font-size: 50px;
+`;
+
+export default function Home() {
+  return <Title>My page</Title>;
 }
