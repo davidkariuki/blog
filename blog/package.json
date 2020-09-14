@@ -18,7 +18,12 @@
     "@types/react-dom": "16.8.4",
     "@types/styled-components": "5.0.1",
     "babel-plugin-styled-components": "^1.10.0",
+    "raw-loader": "^4.0.1",
     "typescript": "4.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "peerDependencies": {
+    "react-is": "^16.13.1",
+    "webpack": "^4.44.1"
+  }
 }
