@@ -1,0 +1,116 @@
+---
+layout: post
+title: "The median of medians algorithm with ruby"
+date: 2014-04-23 22:24:16 -0700
+comments: true
+categories: [Algorithms, ruby, rspec, TDD]
+---
+
+I stumbled across the median of medians algorithm when I was looking for an efficient way
+to calculate the nearest 20 cities to any city, given their latitude and longitude.
+
+It is a [selection algorithm](http://en.wikipedia.org/wiki/Selection_algorithm) that has a
+worst-case <span class="courier">O(n)</span> complexity for selecting the kth order statistic (kth smallest number) in an unsorted array with
+length n.
+
+Say you have an unsorted array and you would like to pick the fourth smallest element.
+One approach would be to just sort the array and pick the fourth
+element. However, the best case performance for this approach is <span class="courier">O(nlogn)</span>.
+
+<!-- more -->
+
+### The algorithm
+
+1. If n is negligible, e.g. <span class="courier">n <= 5</span>, sort the array and return the kth
+  element. (The complexity of sorting _small_ arrays is linear).
+2. Partition the array into sub-arrays of length 5.
+3. Sort each sub-array and select the median of each.
+4. Recursively find the median of the medians you found in 3.
+5. Loop through all <span class="courier">n-1</span> elements, comparing them  with the median of medians m and create
+  two arrays  <span class="courier">left</span> and <span class="courier">right</span>, where left contains all elements <span class="courier">< m</span>
+  and <span class="courier">right</span> contains all elements <span class="courier">> m</span>
+6. From 5, we can infer that the position of <span class="courier">m</span>, <span class="courier">p  = |L| + 1</span>, where
+  <span class="courier">|L|</span> is the length of <span class="courier">left</span>. In other words, <span class="courier">m</span> is the <span class="courier">(|L| + 1)</span>th
+  smallest element.
+7. If <span class="courier">k == p</span>, return <span class="courier">m</span>.
+8. If <span class="courier">k < p</span>, return the kth smallest element of <span class="courier">left</span>.
+9. If <span class="courier">k > p</span>, then return the <span class="courier">(k - p)</span>th smallest element of <span class="courier">right</span>.
+
+
+### An example
+Given an array of length <span class="courier">n = 10</span>: <span class="courier">[10, 6, 8, 3, 7, 1, 2, 4, 9, 5]</span>, we would like to find the kth smallest element, where <span class="courier">k = 3</span>.
+
+- Split the array into two sub-arrays of size 5: <span class="courier">[10, 6, 8, 3, 7]</span> and <span class="courier">[1, 2, 4, 9, 5]</span>.
+- Sort each sub-array and select the medians: <span class="courier">[3, 6, 7, 8, 10]</span> and <span class="courier">[1, 2, 4, 5, 9]</span>, medians <span class="courier">7</span> and <span class="courier">4</span>.
+- Pick the median of the two medians <span class="courier">m = 4</span>.
+- Loop over the initial array splitting it into two arrays:  
+  <span class="courier">left = [3, 1, 2]</span> and <span class="courier">right = [10, 6, 8, 7, 9, 5]</span>.
+- The position of <span class="courier">m, p = left.length + 1</span>
+- Since <span class="courier">k < p</span> we recursively find the kth smallest element of <span class="courier">left</span>.
+- Since <span class="courier">left.size <= 5</span>, we follow step 1: sort the array and return the kth element, <span class="courier">3</span>.
+
+### The code
+
+Since I tagged this post with 'TDD' We'll need to write a few test cases first. My favorite testing framework for ruby is currently [rspec](http://rspec.info/) with [guard](https://github.com/guard/guard-rspec).
+
+```ruby
+it 'returns the 3rd smallest number' do
+  expect(subject.new(array1).kth_smallest(3)).to eq(3)
+end
+
+it 'returns the 2nd smallest number' do
+  expect(subject.new(array1).kth_smallest(2)).to eq(2)
+end
+
+it 'returns the 5th smallest number' do
+  expect(subject.new(array1).kth_smallest(5)).to eq(5)
+end
+
+it 'computes the same result as a number obtained by sorting' do
+  k = 53
+  array2_sorted = array2.sort
+  expect(subject.new(array2).kth_smallest(k)).to eq(array2_sorted[k-1])
+end
+```
+
+Then we fix the breaking specs by writing the lib:
+
+```ruby
+class KthSmallest
+  attr_reader :array
+
+  def initialize(array)
+    @array = array
+  end
+
+  def kth_smallest(array = array, k)
+    return select(array, k) if (array.length <= 5)
+    medians = []
+    left,right = [],[]
+    array.each_slice(5) do |array_5|
+      medians << select(array_5, array_5.length/2)
+    end
+    m = kth_smallest(medians, medians.length/2)
+    array.each { |n| n < m ? left << n : (n > m ? right << n : nil) }
+    m_posn = left.length + 1
+    if k == m_posn
+      m
+    elsif k < m_posn
+      kth_smallest(left, k)
+    else
+      kth_smallest(right, k - m_posn)
+    end
+  end
+
+  private
+
+  def select(array, k)
+    array.sort[k - 1]
+  end
+end
+```
+
+You can find the complete code on
+[github](https://github.com/davidkariuki/algorithms/blob/master/lib/algorithms/kth_smallest.rb)
+
+

@@ -1,19 +1,6 @@
-import React, { FunctionComponent } from "react";
-import Head from "next/head";
+import "../styles/global.css";
 import { AppProps } from "next/app";
 
-const App: FunctionComponent<AppProps> = ({ Component, pageProps }) => {
-  return (
-    <>
-      <Head>
-        <title>Bloggies</title>
-      </Head>
-      <main className="main">
-        <Component {...pageProps} />
-      </main>
-    </>
-  );
+export default function App({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
-};
-
-export default App;
+}

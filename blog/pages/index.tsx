@@ -1,18 +1,20 @@
-import styled from "styled-components";
 import Link from "next/link";
+import Head from "next/head";
+import { FunctionComponent } from "react";
+import { Layout } from "../components/Layout";
 
-const Title = styled.h1`
-  color: red;
-  font-size: 50px;
-`;
-
-export default function Blog() {
+const Home: FunctionComponent = () => {
   return (
-    <>
-      <Title>Blog</Title>
-      <Link href="/posts/first-post">
-        <a>First post</a>
+    <Layout>
+      <Head>
+        <title>dk | blog</title>
+      </Head>
+
+      <Link href="/blog">
+        <a>goTo Blog</a>
       </Link>
-    </>
+    </Layout>
   );
-}
+};
+
+export default Home;
