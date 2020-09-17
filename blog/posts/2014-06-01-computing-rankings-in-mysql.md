@@ -17,6 +17,7 @@ it later in another statement, which makes them perfect for our use case. Let's 
 <!-- more -->
 
 ### Schema
+
 Our schema consists of a `students` table and three other tables to store
 scores for each subject.
 
@@ -66,6 +67,7 @@ VALUES (1, 87), (2, 49), (3, 72), (4, 45), (5, 38), (6, 99);
 ```
 
 ### Initial Query
+
 Let's start by selecting the names and scores of the students:
 
 ```sql
@@ -94,9 +96,10 @@ Giving us the following results:
 ```
 
 ### Key Steps
+
 First, we order the results of our initial query by descending math score and select
 the results into a derived table `data_ordered_by_math_score`. Next, we initialize our user-defined
-variable, `@math_rank`, by selecting it into a derived table, `math_rank_derived_table`,  and setting
+variable, `@math_rank`, by selecting it into a derived table, `math_rank_derived_table`, and setting
 its value to zero. Finally, we select every record in `data_ordered_by_math_score` and increment
 the value of `@math_rank` for each row returned by the statement.
 
@@ -117,6 +120,7 @@ FROM
 ```
 
 ### Results
+
 Here are the results with math rank:
 
 ```
@@ -233,7 +237,14 @@ As you can see, it gets ugly fast. The final query, only accounting for
 ties in the math score, looks like this:
 
 ```sql
-SELECT english_score, biology_score, math_score, total_score, math_rank, english_rank, biology_rank, @overall_rank := @overall_rank + 1 AS overall_rank
+SELECT english_score,
+       biology_score,
+       math_score,
+       total_score,
+       math_rank,
+       english_rank,
+       biology_rank,
+       @overall_rank := @overall_rank + 1 AS overall_rank
 FROM
   (SELECT @overall_rank := 0) AS overall_rank_derived_table,
   (SELECT data_ordered_by_biology_score.*, @biology_rank := @biology_rank + 1 AS biology_rank
@@ -267,6 +278,7 @@ The only difference in the results is that now the math ranks are:
 ```
 1, 1, 2, 3, 4, 5
 ```
+
 instead of:
 
 ```
@@ -276,4 +288,3 @@ instead of:
 I've put an SQL Fiddle of this code
 [here](http://sqlfiddle.com/#!2/a5f693/39). If there are better
 alternatives to this approach, please leave me a note, I would love to hear them!
-

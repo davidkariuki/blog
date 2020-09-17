@@ -24,7 +24,7 @@ Here are a few test cases to check that our implementation does what
 it's supposed to do:
 
 ```ruby
-it 'simply returns a single-element array wihout calling partition' do
+it 'returns a single-element array wihout calling partition' do
   expect(subject.any_instance).not_to receive(:partition)
   subject.new(single_element_array).sort!
   expect(single_element_array).to eq(single_element_array)
@@ -99,6 +99,7 @@ Given the following array:
 ```ruby
 array = [2, 3, 1, 5]
 ```
+
 The first step is to pick a pivot. The choice of a pivot can significantly improve
 the performance of Quicksort. For this implementation we will use a random element in the array as a pivot.
 One alternative would be to use the 'Median-of-three' as suggested by
@@ -108,6 +109,7 @@ elements of the array and use their median as a pivot).
 ```ruby
 pivot_index = rand(left_index..right_index)
 ```
+
 Say the result of the above operation is `pivot_index = 0`. The next step is
 to call the partition function, which will move all elements less than 2 to the left and all elements
 greater than 2 to the right of the pivot and return the new position of the
@@ -125,6 +127,7 @@ array = [5, 3, 1, 2]; pivot = 2; new_pivot_index = 0
 ```ruby
 new_pivot_index = left_index
 ```
+
 Now we loop through all the elements **excluding the pivot** -- left to right --
 comparing them with the pivot. If an element is less than or equal to
 the pivot, we swap that element with the element at the position of the
@@ -138,11 +141,13 @@ resulting in the following changes:
 ```ruby
 array = [1, 3, 5, 2]; pivot = 2; new_pivot_index = 1
 ```
+
 The loop is complete so the next step is to swap the pivot with the element at the new pivot index resulting in the following changes:
 
 ```ruby
 array = [1, 2, 5, 3]; pivot = 2; new_pivot_index = 1
 ```
+
 We return the new pivot index to the calling function as now we have
 successfully partitioned the array around the pivot, <span
 class='courier'>2</span>.
@@ -154,20 +159,20 @@ that recursive fork ends with no additional operations.
 
 For the elements to the right of we follow the same steps as above:
 
-* Pick a pivot: (a random element in our array: `[5, 3]`)
-* Say we picked 3, call partition on the
-   array, starting with the following configuration:
+- Pick a pivot: (a random element in our array: `[5, 3]`)
+- Say we picked 3, call partition on the
+  array, starting with the following configuration:
 
 ```ruby
 array = [5, 3]; pivot = 3; new_pivot_index = 0
 ```
 
-* Since the pivot is the right-most element, we don't need to move it
-out of the way.
-* First and only comparison: 5 is greater
-than the pivot so no operations performed.
-* Loop exits, now we swap the pivot with the element at the new pivot
-index resulting in the following changes:
+- Since the pivot is the right-most element, we don't need to move it
+  out of the way.
+- First and only comparison: 5 is greater
+  than the pivot so no operations performed.
+- Loop exits, now we swap the pivot with the element at the new pivot
+  index resulting in the following changes:
 
 ```ruby
 array = [3, 5]; pivot = 3; new_pivot_index = 0
@@ -186,5 +191,3 @@ Finally we return the array, which is completely sorted at this point!
 
 You can find the complete code on
 [github](https://github.com/davidkariuki/algorithms/blob/master/lib/algorithms/quick_sort.rb)
-
-

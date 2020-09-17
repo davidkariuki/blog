@@ -1,19 +1,19 @@
 import Head from "next/head";
-import { FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 import { GetStaticProps } from "next";
 import { getSortedPostsData } from "../lib/posts";
 import { Layout } from "../components/Layout";
 import { PostsList } from "../components/PostsList";
 
-interface BlogProps {
+interface ScribblesProps {
   allPostsData: any[];
 }
 
-const Blog: FunctionComponent<BlogProps> = ({ allPostsData }) => {
+const Scribbles: FunctionComponent<ScribblesProps> = ({ allPostsData }) => {
   return (
     <Layout>
       <Head>
-        <title>dk | blog</title>
+        <title>dk | Scribbles</title>
       </Head>
       <PostsList posts={allPostsData} />
     </Layout>
@@ -30,4 +30,4 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default Blog;
+export default Scribbles;

@@ -9,11 +9,11 @@ export const Navbar: FunctionComponent = () => {
         <Link href="/">
           <NavbarLink brand>dk</NavbarLink>
         </Link>
-        <Link href="/blog">
-          <NavbarLink>Blog</NavbarLink>
+        <Link href="/scribbles">
+          <NavbarLink>Scribbles</NavbarLink>
         </Link>
-        <Link href="/about">
-          <NavbarLink>About</NavbarLink>
+        <Link href="/wanderlust">
+          <NavbarLink>Wanderlust</NavbarLink>
         </Link>
       </NavbarContent>
     </NavbarContainer>

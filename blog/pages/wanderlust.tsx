@@ -2,14 +2,14 @@ import Head from "next/head";
 import { FunctionComponent } from "react";
 import { Layout } from "../components/Layout";
 
-const Home: FunctionComponent = () => {
+const Wanderlust: FunctionComponent = () => {
   return (
     <Layout>
       <Head>
-        <title>dk | blog</title>
+        <title>dk | about</title>
       </Head>
     </Layout>
   );
 };
 
-export default Home;
+export default Wanderlust;

@@ -16,6 +16,7 @@ The k-means algorithm is what we will use to cluster our data. It is an unsuperv
 learning algorithm that groups data points into k clusters, minimizing the distance from each data point to the centroid of the cluster it belongs to.
 
 ### The Algorithm
+
 1. Choose k points to represent the initial centroids for the data. These may be assigned randomly or specified by the user.
 2. Assign each data point to the closest centroid (by euclidean distance or other distance metric), creating k clusters.
 3. Recalculate each centroid's position such that each data point in
@@ -25,6 +26,7 @@ learning algorithm that groups data points into k clusters, minimizing the dista
 <!-- more -->
 
 ### The Code
+
 Let's start by implementing classes to store the businesses, centroids and clusters.
 The `DataPoint` class will represent the businesses and centroids. A
 `DataPoint` should be able to do the following:
@@ -36,9 +38,9 @@ Since we are dealing with geographical coordinates, for this
 implementation I've elected to use the geographic distance between
 points instead of the euclidean distance, using utilities from the [Geocoder](https://github.com/alexreisner/geocoder) library. I would like to pass instances of the `DataPoint` class to the Geocoder library for distance calculations, so we will also need to implement an instance method, `to_coordinates`, that returns an array of latitude and longitude.
 
-To store the data points, we will use a `Set` because it will make cluster comparison easier (for step 4 of the algorithm). The Ruby `Set` class uses the `eql?` and `hash` methods for equality comparisons,  so our `DataPoint` class will also need to implement them.
+To store the data points, we will use a `Set` because it will make cluster comparison easier (for step 4 of the algorithm). The Ruby `Set` class uses the `eql?` and `hash` methods for equality comparisons, so our `DataPoint` class will also need to implement them.
 
-Now that we have the basic gist of the requirements for the `DataPoint` class,  let's write a few test cases to assert them.
+Now that we have the basic gist of the requirements for the `DataPoint` class, let's write a few test cases to assert them.
 
 ```ruby
 subject { Algorithms::KMeans::DataPoint }
@@ -83,7 +85,8 @@ class DataPoint
   attr_reader :latitude, :longitude, :state
 
   def initialize(options)
-    raise ArgumentError,  "Please initialize with :latitude, :longitude" if options[:latitude].nil? || options[:longitude].nil?
+    raise ArgumentError,  "Please initialize with :latitude, :longitude"
+      if options[:latitude].nil? || options[:longitude].nil?
     @latitude = options[:latitude].to_f
     @longitude = options[:longitude].to_f
     @state = options[:state]
@@ -108,6 +111,7 @@ class DataPoint
   end
 end
 ```
+
 Up next is the `Cluster` class, which we will use to perform the following functions:
 
 - Store a centroid and a set of data points.
@@ -142,7 +146,8 @@ end
 describe '#add_datapoint' do
   it 'adds a data point' do
     new_data_point = Algorithms::KMeans::DataPoint.new(latitude: -32.32, longitude: 78.2)
-    expect { subject.add_datapoint(new_data_point) }.to change { subject.data_points.size }.by(1)
+    expect { subject.add_datapoint(new_data_point) }
+       .to change { subject.data_points.size }.by(1)
   end
 end
 
@@ -153,6 +158,7 @@ describe '#==' do
   end
 end
 ```
+
 Followed by the class implementation:
 
 ```ruby
@@ -210,7 +216,9 @@ let(:clusters) do
     { latitude: 40.764684, longitude: -73.988990 }, # Manhattan, NY
     { latitude: 42.137687, longitude: -100.178348}, # Goose Creek, NE
   ]
-  lat_lngs.collect { |ll| Algorithms::KMeans::Cluster.new(centroid: Algorithms::KMeans::DataPoint.new(ll)) }
+  lat_lngs.collect do |ll|
+     Algorithms::KMeans::Cluster.new(centroid: Algorithms::KMeans::DataPoint.new(ll))
+  end
 end
 
 describe '#run' do
@@ -219,14 +227,16 @@ describe '#run' do
       subject.clusters = clusters
       subject.run
       states_by_cluster = subject.clusters.map {|s| s.data_points.classify(&:state).keys.to_set }.to_set
-      expect(states_by_cluster).to eq(Set.new([east_states.to_set, west_states.to_set, fly_over_states.to_set]))
+      expect(states_by_cluster)
+         .to eq(Set.new([east_states.to_set, west_states.to_set, fly_over_states.to_set]))
     end
   end
 
   context 'without pre-determined clusters' do
     it 'divides the data into distinct clusters' do
       subject.run
-      expect(subject.clusters.map { |cluster| cluster.data_points.size }.inject(:+)).to eq(subject.data_points.to_set.size)
+      expect(subject.clusters.map { |cluster| cluster.data_points.size }.inject(:+))
+         .to eq(subject.data_points.to_set.size)
     end
   end
 end
@@ -264,6 +274,7 @@ end
 ```
 
 ### Results
+
 Since the k-means algorithm does not guarantee to find the global optimum,
 we can't expect that the data will be clustered in the same way after
 each run. However, given that we have some knowledge of
@@ -272,9 +283,7 @@ result in the global optimum. For the chart below I picked 500
 businesses in groupings of states to make the clustering easier. I also
 chose the initial centroids to ensure that the algorithm found the global optimum. I plotted the chart using a Google [Visualization](https://developers.google.com/chart/interactive/docs/gallery/geochart).
 
-{% img center /images/k-means-result.png 600 'k-means result' %}
-
+![k-means result](/images/k-means-result.png "k-means-result")
 
 You can find the complete code for this blog post in my algorithms repository on
 [github](https://github.com/davidkariuki/algorithms/tree/master/lib/algorithms/k_means).
-

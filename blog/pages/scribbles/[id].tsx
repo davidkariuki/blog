@@ -1,8 +1,9 @@
+import Head from "next/head";
 import React, { FunctionComponent } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
+import { getAllPostIds, getPostData } from "../../lib/posts";
 import { Layout } from "../../components/Layout";
 import { PostBody } from "../../components/PostBody";
-import { getAllPostIds, getPostData } from "../../lib/posts";
 
 interface PostData {
   postData: {
@@ -16,6 +17,9 @@ interface PostData {
 const Post: FunctionComponent<PostData> = ({ postData }) => {
   return (
     <Layout>
+      <Head>
+        <title>{postData.title}</title>
+      </Head>
       <PostBody data={postData} />
     </Layout>
   );

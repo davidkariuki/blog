@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import Link from "next/link";
-import { Card, CardContent, PostDate, PostTitle } from "./styles";
+import { Card, CardContent, PostTitle } from "./styles";
+import { FormattedDate } from "../FormattedDate";
 
 interface PostSummaryProps {
   title: string;
@@ -14,24 +15,15 @@ export const PostSummary: FunctionComponent<PostSummaryProps> = ({
   id,
 }) => {
   return (
-    <Link href="/posts/[id]" as={`/posts/${id}`}>
+    <Link href="/scribbles/[id]" as={`/scribbles/${id}`}>
       <a>
         <Card>
           <CardContent>
             <PostTitle>{title}</PostTitle>
-            <PostDate>{formatDate(date)}</PostDate>
+            <FormattedDate dateString={date} />
           </CardContent>
         </Card>
       </a>
     </Link>
   );
-};
-
-const formatDate = (dateString: string): string => {
-  const date = new Date(dateString);
-  return new Intl.DateTimeFormat("en-GB", {
-    year: "numeric",
-    month: "long",
-    day: "2-digit",
-  }).format(date);
 };

@@ -5,7 +5,7 @@ html body {
   margin: 0;
   font-family: "Quicksand", sans-serif;
   line-height: 1.6;
-  font-size: 18px;
+  font-size: 1rem;
   background-color: #1c1c1e;
   color: #7e7e7e;
 }
@@ -22,4 +22,18 @@ a {
 img {
   max-width: 100%;
   display: block;
+}
+
+pre {
+  box-shadow: 0 6px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  padding: 1rem !important;
+  margin-bottom: 2rem;
+}
+
+@media only screen and (min-width: 62rem) {
+  pre {
+    margin-left: -4rem;
+    margin-right: -4rem;
+  }
 }

@@ -8,16 +8,17 @@ export const NavbarContainer = styled.div`
   width: 100%;
   background-color: #1c1c1e;
   box-shadow: rgb(0, 0, 0) 0px 0px 8px 0px;
+  z-index: 2;
 `;
 
 export const NavbarContent = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 20px 17%;
+  padding: 1.25rem 15.6%;
 
-  @media only screen and (max-width: 600px) {
-    padding: 20px 4%;
+  @media only screen and (max-width: 37rem) {
+    padding: 1.25rem 4%;
   }
 `;
 
@@ -26,12 +27,13 @@ interface NavbarLinkProps {
 }
 
 export const NavbarLink = styled.div<NavbarLinkProps>`
-  padding: 0 15px;
+  padding: 0 1rem;
   cursor: pointer;
-  font-weight: 400;
-  font-size: 18px;
+  font-weight: ${(props) => (props.brand ? 700 : 400)};
+  font-size: ${(props) => (props.brand ? "1.5rem" : "1rem")};
   color: ${(props) => (props.brand ? "#ff7601" : "#8b8b8b")};
   margin-right: ${(props) => (props.brand ? "auto" : 0)};
+  line-height: 1;
 
   &:first-child {
     padding-left: 0;
