@@ -16,7 +16,7 @@ export const PostsList: FunctionComponent<PostsListProps> = ({ posts }) => {
   return (
     <Content>
       {posts.map(({ id, title, date }) => {
-        return <PostSummary key={id} title={title} date={date} />;
+        return <PostSummary key={id} id={id} title={title} date={date} />;
       })}
     </Content>
   );
