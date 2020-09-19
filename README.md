@@ -1,1 +1,1 @@
-Source for blog @ [davidkariuki.com](davidkariuki.com)
+Source for blog @ [davidkariuki.com](https://davidkariuki.com)
