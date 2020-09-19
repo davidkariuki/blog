@@ -6,7 +6,7 @@ const Home: FunctionComponent = () => {
   return (
     <Layout>
       <Head>
-        <title>dk | blog</title>
+        <title>dk | home</title>
       </Head>
     </Layout>
   );

@@ -8,7 +8,7 @@ interface Props {
   value?: string;
 }
 
-export const Code: FunctionComponent<Props> = ({
+export const CodeRenderer: FunctionComponent<Props> = ({
   children,
   language,
   showLineNumbers,
@@ -18,6 +18,12 @@ export const Code: FunctionComponent<Props> = ({
     <SyntaxHighlighter
       language={language || "typescript"}
       style={atomOneDark}
+      customStyle={{
+        padding: "1rem",
+        boxShadow: "var(--shadow)",
+        borderRadius: "3px",
+        marginBottom: "2rem",
+      }}
       showLineNumbers={showLineNumbers || false}
     >
       {value ? value : children}

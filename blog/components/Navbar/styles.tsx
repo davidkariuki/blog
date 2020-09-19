@@ -4,10 +4,9 @@ export const NavbarContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  margin: auto;
   width: 100%;
-  background-color: #1c1c1e;
-  box-shadow: rgb(0, 0, 0) 0px 0px 8px 0px;
+  background-color: var(--primary-color);
+  box-shadow: var(--shadow-strong);
   z-index: 2;
 `;
 
@@ -31,7 +30,8 @@ export const NavbarLink = styled.div<NavbarLinkProps>`
   cursor: pointer;
   font-weight: ${(props) => (props.brand ? 700 : 400)};
   font-size: ${(props) => (props.brand ? "1.5rem" : "1rem")};
-  color: ${(props) => (props.brand ? "#ff7601" : "#8b8b8b")};
+  color: ${(props) =>
+    props.brand ? "var(--accent-text)" : "var(--light-text)"};
   margin-right: ${(props) => (props.brand ? "auto" : 0)};
   line-height: 1;
 

@@ -10,10 +10,10 @@ export const Navbar: FunctionComponent = () => {
           <NavbarLink brand>dk</NavbarLink>
         </Link>
         <Link href="/scribbles">
-          <NavbarLink>Scribbles</NavbarLink>
+          <NavbarLink>scribbles</NavbarLink>
         </Link>
-        <Link href="/wanderlust">
-          <NavbarLink>Wanderlust</NavbarLink>
+        <Link href="/travelogue">
+          <NavbarLink>travelogue</NavbarLink>
         </Link>
       </NavbarContent>
     </NavbarContainer>

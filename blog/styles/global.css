@@ -1,13 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
 
+:root {
+  --primary-color: #1c1c1e;
+  --secondary-color: #282c34;
+  --shadow: 0 2px 4px rgba(28, 28, 30, 0.1);
+  --shadow-strong: #000 0px 0px 8px 0px;
+  --regular-text: #8b8b8b;
+  --light-text: #bcbcbc;
+  --accent-text: #ff7b0c;
+}
+
 html body {
   padding: 0;
   margin: 0;
   font-family: "Quicksand", sans-serif;
   line-height: 1.6;
   font-size: 1rem;
-  background-color: #1c1c1e;
-  color: #7e7e7e;
+  background-color: var(--primary-color);
+  color: var(--regular-text);
+  text-align: initial;
 }
 
 * {
@@ -15,25 +26,11 @@ html body {
 }
 
 a {
-  color: #bcbcbc;
+  color: var(--light-text);
   text-decoration: none;
 }
 
 img {
   max-width: 100%;
   display: block;
-}
-
-pre {
-  box-shadow: 0 6px 3px rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
-  padding: 1rem !important;
-  margin-bottom: 2rem;
-}
-
-@media only screen and (min-width: 62rem) {
-  pre {
-    margin-left: -4rem;
-    margin-right: -4rem;
-  }
 }

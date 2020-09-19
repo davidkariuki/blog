@@ -2,16 +2,16 @@ import styled from "styled-components";
 
 export const Card = styled.div`
   width: 100%;
-  background-color: #282c34;
-  margin-bottom: 24px;
+  background-color: var(--secondary-color);
+  margin-bottom: 1.5rem;
   border-radius: 3px;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(28, 28, 30, 0.1);
+  box-shadow: var(--shadow);
   transition: transform 0.2s linear;
 
   &:hover {
     transform: scale(1.01);
-    box-shadow: rgb(0, 0, 0) 0px 0px 8px 0px;
+    box-shadow: var(--shadow-strong);
   }
 `;
 
@@ -20,9 +20,10 @@ export const CardContent = styled.div`
 `;
 
 export const PostTitle = styled.h2`
-  color: #bcbcbc;
+  color: var(--light-text);
   margin: 0;
-  line-height: 28px;
-  font-size: 24px;
+  line-height: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 400;
+  margin-bottom: 0.5rem;
 `;

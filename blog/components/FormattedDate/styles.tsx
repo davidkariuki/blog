@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
-export const PostDate = styled.div`
-  color: #6c757d;
+interface DateProps {
+  textCenter?: boolean;
+}
+
+export const PostDate = styled.div<DateProps>`
+  color: var(--regular-text);
+  text-align: ${(props) => (props.textCenter ? "center" : "")};
 `;

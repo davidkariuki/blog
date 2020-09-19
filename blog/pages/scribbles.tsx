@@ -13,7 +13,7 @@ const Scribbles: FunctionComponent<ScribblesProps> = ({ allPostsData }) => {
   return (
     <Layout>
       <Head>
-        <title>dk | Scribbles</title>
+        <title>dk | scribbles</title>
       </Head>
       <PostsList posts={allPostsData} />
     </Layout>

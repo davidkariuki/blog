@@ -3,9 +3,13 @@ import { PostDate } from "./styles";
 
 interface DateProps {
   dateString: string;
+  textCenter?: boolean;
 }
 
-export const FormattedDate: FunctionComponent<DateProps> = ({ dateString }) => {
+export const FormattedDate: FunctionComponent<DateProps> = ({
+  dateString,
+  textCenter,
+}) => {
   const date = new Date(dateString);
   const formattedDateString = new Intl.DateTimeFormat("en-GB", {
     year: "numeric",
@@ -13,5 +17,5 @@ export const FormattedDate: FunctionComponent<DateProps> = ({ dateString }) => {
     day: "2-digit",
   }).format(date);
 
-  return <PostDate>{formattedDateString}</PostDate>;
+  return <PostDate textCenter={textCenter}>{formattedDateString}</PostDate>;
 };
