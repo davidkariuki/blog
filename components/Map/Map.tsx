@@ -1,9 +1,9 @@
 import React, { useState, FunctionComponent } from "react";
 import ReactMapGL, { Popup, FlyToInterpolator } from "react-map-gl";
 import { MapPanel } from "../MapPanel";
-import { Place, Places } from "../Places";
+import { Places } from "../Places";
 import { MapPopup } from "../MapPopup";
-import destinations from "../../destinations/destinations.json";
+import { Destination } from "../../shared/types";
 
 export interface ViewportProps {
   width: number | string;
@@ -17,9 +17,13 @@ export interface ViewportProps {
   transitionInterpolator?: FlyToInterpolator;
 }
 
-export const Map: FunctionComponent = () => {
+interface MapProps {
+  markers: Destination[];
+}
+
+export const Map: FunctionComponent<MapProps> = ({ markers }) => {
   const apiToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
-  const [place, setPlace] = useState<Place>();
+  const [place, setPlace] = useState<Destination>();
   const [viewport, setViewport] = useState({
     width: "100%",
     height: "100%",
@@ -30,12 +34,12 @@ export const Map: FunctionComponent = () => {
     pitch: 0,
   } as ViewportProps);
 
-  const popupClicked = (p: Place) => {
+  const popupClicked = (p: Destination) => {
     setPlace(p);
     const newCoords = {
       latitude: p.latitude,
       longitude: p.longitude,
-      zoom: 5,
+      zoom: 8,
       transitionInterpolator: new FlyToInterpolator({ speed: 1.5 }),
       transitionDuration: "auto",
     };
@@ -46,7 +50,6 @@ export const Map: FunctionComponent = () => {
     if (place) {
       return (
         <Popup
-          tipSize={5}
           anchor="top"
           longitude={place.longitude}
           latitude={place.latitude}
@@ -67,9 +70,9 @@ export const Map: FunctionComponent = () => {
       mapboxApiAccessToken={apiToken}
       dragRotate={false}
     >
-      <MapPanel />
-      <Places data={destinations} onClick={(p) => popupClicked(p)} />
+      <Places data={markers} onClick={(p) => popupClicked(p)} />
       {renderPopup()}
+      <MapPanel />
     </ReactMapGL>
   );
 };

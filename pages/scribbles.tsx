@@ -1,5 +1,5 @@
-import Head from "next/head";
 import React, { FunctionComponent } from "react";
+import Head from "next/head";
 import { GetStaticProps } from "next";
 import { getSortedPostsData } from "../lib/posts";
 import { Layout } from "../components/Layout";

@@ -34,3 +34,20 @@ img {
   max-width: 100%;
   display: block;
 }
+
+/* mapbox css overrides */
+.mapboxgl-popup-content {
+  background-color: var(--secondary-color) !important;
+  box-shadow: var(--shadow) !important;
+  border: 1px solid var(--secondary-color) !important;
+  padding: 0 !important;
+  border-radius: 5px !important;
+}
+
+.mapboxgl-popup-tip {
+  border-bottom-color: var(--primary-color) !important;
+}
+
+.mapboxgl-popup-close-button {
+  color: var(--accent-text);
+}

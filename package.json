@@ -9,6 +9,7 @@
   "dependencies": {
     "@types/react-map-gl": "^5.2.7",
     "@types/react-syntax-highlighter": "^11.0.5",
+    "contentful": "^7.14.6",
     "gray-matter": "^4.0.2",
     "next": "latest",
     "react": "^16.13.0",

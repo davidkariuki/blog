@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from "react";
-import { Panel, Title } from "./styles";
+import { Panel, Title, Content } from "./styles";
 
 export const MapPanel: FunctionComponent = () => {
   return (
     <Panel>
       <Title>Destinations</Title>
-      <p>Places I've visited so far</p>
+      <Content>Places I've visited so far</Content>
     </Panel>
   );
 };

@@ -1,13 +1,10 @@
 import React, { FunctionComponent } from "react";
 import { Main, MapContainer } from "./styles";
-import { Map } from "../Map";
 
-export const Trips: FunctionComponent = () => {
+export const MapLayout: FunctionComponent = ({ children }) => {
   return (
     <Main>
-      <MapContainer>
-        <Map />
-      </MapContainer>
+      <MapContainer>{children}</MapContainer>
     </Main>
   );
 };

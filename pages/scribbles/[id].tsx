@@ -14,17 +14,6 @@ interface PostData {
   };
 }
 
-const Post: FunctionComponent<PostData> = ({ postData }) => {
-  return (
-    <Layout>
-      <Head>
-        <title>{postData.title}</title>
-      </Head>
-      <PostBody data={postData} />
-    </Layout>
-  );
-};
-
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await getAllPostIds();
 
@@ -35,13 +24,24 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postData = await getPostData(params.id as string);
+  const postData = await getPostData(params?.id as string);
 
   return {
     props: {
       postData,
     },
   };
+};
+
+const Post: FunctionComponent<PostData> = ({ postData }) => {
+  return (
+    <Layout>
+      <Head>
+        <title>{postData.title}</title>
+      </Head>
+      <PostBody data={postData} />
+    </Layout>
+  );
 };
 
 export default Post;

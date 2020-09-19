@@ -1,2 +1,1 @@
-# blog
-Repository for davidkariuki.com
+Code for blog @ davidkariuki.com

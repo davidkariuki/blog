@@ -5,7 +5,7 @@ export const Panel = styled.div`
   top: 0;
   left: 0;
   max-width: 20rem;
-  padding: 1rem;
+  padding: 0.5rem;
   margin: 1rem;
   background: var(--primary-color);
   box-shadow: var(--shadow);
@@ -14,6 +14,9 @@ export const Panel = styled.div`
 
 export const Title = styled.h3`
   color: var(--accent-text);
-  margin-top: 0;
-  margin-bottom: 1rem;
+  margin: 0;
+`;
+
+export const Content = styled.div`
+  color: var(--regular-text);
 `;
