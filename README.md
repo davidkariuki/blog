@@ -1,1 +1,1 @@
-Code for blog @ davidkariuki.com
+Source for blog @ [davidkariuki.com](davidkariuki.com)
