@@ -15,7 +15,7 @@ export const MapPopup: FunctionComponent<PopupProps> = ({ place }) => {
       </Content>
       {place.image && (
         <ImageContainer>
-          <img width={240} src={place.image} />
+          <img src={place.image} alt={place.name} />
         </ImageContainer>
       )}
     </Panel>

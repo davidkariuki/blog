@@ -11,7 +11,10 @@ export const getDestinations = async (): Promise<Destination[]> => {
   const entries = await client.getEntries();
 
   const data = entries.items.map((item: any) => {
-    const imageUrl = { image: item.fields.image?.fields.file.url || null };
+    const image = item.fields.image;
+    const imageUrl = {
+      image: image ? `${image.fields.file.url}?w=240` : null,
+    };
     return { ...item.fields, ...imageUrl };
   });
 
