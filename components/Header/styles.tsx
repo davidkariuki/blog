@@ -1,24 +1,19 @@
 import styled from "styled-components";
 
-export const NavbarContainer = styled.div`
-  position: fixed;
+export const NavbarContainer = styled.header`
+  position: sticky;
   top: 0;
-  left: 0;
+  display: flex;
+  align-items: center;
   width: 100%;
+  min-height: var(--nav-height);
+  padding: var(--desktop-padding);
+  @media only screen and (max-width: 37rem) {
+    padding: var(--mobile-padding);
+  }
   background-color: var(--primary-color);
   box-shadow: var(--shadow-strong);
   z-index: 2;
-`;
-
-export const NavbarContent = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 1.25rem 15.6%;
-
-  @media only screen and (max-width: 37rem) {
-    padding: 1.25rem 4%;
-  }
 `;
 
 interface NavbarLinkProps {
@@ -28,7 +23,7 @@ interface NavbarLinkProps {
 export const NavbarLink = styled.div<NavbarLinkProps>`
   padding: 0 1rem;
   cursor: pointer;
-  font-weight: ${(props) => (props.brand ? 700 : 400)};
+  font-weight: 700;
   font-size: ${(props) => (props.brand ? "1.5rem" : "1rem")};
   color: ${(props) =>
     props.brand ? "var(--accent-text)" : "var(--light-text)"};

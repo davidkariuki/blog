@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import Head from "next/head";
 import { GetStaticProps } from "next";
 import dynamic from "next/dynamic";
-import { Navbar } from "../components/Navbar";
+import { Header } from "../components/Header";
 import { MapLayout } from "../components/MapLayout";
 import { getDestinations } from "../lib/destinations";
 import { Destination } from "../shared/types";
@@ -34,7 +34,7 @@ const Travelogue: FunctionComponent<DestinationsProps> = ({ data }) => {
       <Head>
         <title>dk | travelogue</title>
       </Head>
-      <Navbar></Navbar>
+      <Header></Header>
       <MapLayout>
         <Map markers={data} />
       </MapLayout>

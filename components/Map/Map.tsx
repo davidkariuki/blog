@@ -1,6 +1,5 @@
 import React, { useState, FunctionComponent } from "react";
 import ReactMapGL, { Popup, FlyToInterpolator } from "react-map-gl";
-import { MapPanel } from "../MapPanel";
 import { Places } from "../Places";
 import { MapPopup } from "../MapPopup";
 import { Destination } from "../../shared/types";
@@ -72,7 +71,6 @@ export const Map: FunctionComponent<MapProps> = ({ markers }) => {
     >
       <Places data={markers} onClick={(p) => popupClicked(p)} />
       {renderPopup()}
-      <MapPanel />
     </ReactMapGL>
   );
 };
