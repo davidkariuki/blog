@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { NavbarContainer, NavbarContent, NavbarLink } from "./styles";
+import { NavbarContainer, NavbarLink } from "./styles";
 import Link from "next/link";
 
 export const Header: FunctionComponent = () => {
