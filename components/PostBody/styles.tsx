@@ -1,10 +1,5 @@
 import styled from "styled-components"
 
-export const Content = styled.div`
-  margin: 0 auto;
-  width: 100%;
-`
-
 export const PostTitle = styled.h2`
   font-size: 2rem;
   text-align: center;

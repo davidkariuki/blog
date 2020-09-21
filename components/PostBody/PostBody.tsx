@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react"
 import ReactMarkdown from "react-markdown/with-html"
-import { Content, PostTitle, Article } from "./styles"
+import { PostTitle, Article } from "./styles"
 import { FormattedDate } from "../FormattedDate"
 import { CodeRenderer } from "../CodeRenderer"
 
@@ -15,7 +15,7 @@ interface PostProps {
 
 export const PostBody: FunctionComponent<PostProps> = ({ data }) => {
   return (
-    <Content>
+    <>
       <PostTitle>{data.title}</PostTitle>
       <FormattedDate textCenter={true} dateString={data.date} />
       <Article>
@@ -27,6 +27,6 @@ export const PostBody: FunctionComponent<PostProps> = ({ data }) => {
           }}
         />
       </Article>
-    </Content>
+    </>
   )
 }

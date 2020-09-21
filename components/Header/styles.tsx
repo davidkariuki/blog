@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 export const NavbarContainer = styled.header`
   position: sticky;
+  position: -webkit-sticky;
   top: 0;
   display: flex;
   align-items: center;
