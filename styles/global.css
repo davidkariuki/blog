@@ -4,7 +4,8 @@
   --primary-color: #1c1c1e;
   --secondary-color: #212125;
   --shadow: 0 2px 4px rgba(28, 28, 30, 0.1);
-  --shadow-strong: #000 0px 0px 8px 0px;
+  --shadow-strong: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
   --regular-text: #8b8b8b;
   --light-text: #ddd;
   --accent-text: #ff7b0c;
