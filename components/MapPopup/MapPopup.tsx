@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from "react";
-import { Destination } from "../../shared/types";
-import { Panel, Content, Title, ImageContainer } from "./styles";
+import React, { FunctionComponent } from "react"
+import { Destination } from "../../shared/types"
+import { Panel, Content, Title, ImageContainer } from "./styles"
 
 interface PopupProps {
-  place: Destination;
+  place: Destination
 }
 
 export const MapPopup: FunctionComponent<PopupProps> = ({ place }) => {
@@ -19,5 +19,5 @@ export const MapPopup: FunctionComponent<PopupProps> = ({ place }) => {
         </ImageContainer>
       )}
     </Panel>
-  );
-};
+  )
+}

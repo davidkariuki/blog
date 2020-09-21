@@ -1,8 +1,6 @@
 ---
-layout: post
 title: "Quicksort (in-place) with Ruby"
 date: 2014-05-04 18:35:38 -0700
-comments: true
 categories: [Algorithms, ruby, rspec, TDD]
 ---
 

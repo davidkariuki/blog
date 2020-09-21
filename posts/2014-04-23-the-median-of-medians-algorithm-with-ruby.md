@@ -1,8 +1,6 @@
 ---
-layout: post
 title: "The median of medians algorithm with ruby"
 date: 2014-04-23 22:24:16 -0700
-comments: true
 categories: [Algorithms, ruby, rspec, TDD]
 ---
 
@@ -22,22 +20,22 @@ element. However, the best case performance for this approach is <span class="co
 ### The algorithm
 
 1. If n is negligible, e.g. <span class="courier">n <= 5</span>, sort the array and return the kth
-  element. (The complexity of sorting _small_ arrays is linear).
+   element. (The complexity of sorting _small_ arrays is linear).
 2. Partition the array into sub-arrays of length 5.
 3. Sort each sub-array and select the median of each.
 4. Recursively find the median of the medians you found in 3.
-5. Loop through all <span class="courier">n-1</span> elements, comparing them  with the median of medians m and create
-  two arrays  <span class="courier">left</span> and <span class="courier">right</span>, where left contains all elements <span class="courier">< m</span>
-  and <span class="courier">right</span> contains all elements <span class="courier">> m</span>
-6. From 5, we can infer that the position of <span class="courier">m</span>, <span class="courier">p  = |L| + 1</span>, where
-  <span class="courier">|L|</span> is the length of <span class="courier">left</span>. In other words, <span class="courier">m</span> is the <span class="courier">(|L| + 1)</span>th
-  smallest element.
+5. Loop through all <span class="courier">n-1</span> elements, comparing them with the median of medians m and create
+   two arrays <span class="courier">left</span> and <span class="courier">right</span>, where left contains all elements <span class="courier">< m</span>
+   and <span class="courier">right</span> contains all elements <span class="courier">> m</span>
+6. From 5, we can infer that the position of <span class="courier">m</span>, <span class="courier">p = |L| + 1</span>, where
+   <span class="courier">|L|</span> is the length of <span class="courier">left</span>. In other words, <span class="courier">m</span> is the <span class="courier">(|L| + 1)</span>th
+   smallest element.
 7. If <span class="courier">k == p</span>, return <span class="courier">m</span>.
 8. If <span class="courier">k < p</span>, return the kth smallest element of <span class="courier">left</span>.
 9. If <span class="courier">k > p</span>, then return the <span class="courier">(k - p)</span>th smallest element of <span class="courier">right</span>.
 
-
 ### An example
+
 Given an array of length <span class="courier">n = 10</span>: <span class="courier">[10, 6, 8, 3, 7, 1, 2, 4, 9, 5]</span>, we would like to find the kth smallest element, where <span class="courier">k = 3</span>.
 
 - Split the array into two sub-arrays of size 5: <span class="courier">[10, 6, 8, 3, 7]</span> and <span class="courier">[1, 2, 4, 9, 5]</span>.
@@ -112,5 +110,3 @@ end
 
 You can find the complete code on
 [github](https://github.com/davidkariuki/algorithms/blob/master/lib/algorithms/kth_smallest.rb)
-
-

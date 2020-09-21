@@ -1,8 +1,6 @@
 ---
-layout: post
 title: "Computing rankings in MySQL"
 date: 2014-06-01 14:51:13 -0700
-comments: true
 categories: [MySQL]
 ---
 

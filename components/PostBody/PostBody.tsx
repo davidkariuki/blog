@@ -1,16 +1,16 @@
-import React, { FunctionComponent } from "react";
-import ReactMarkdown from "react-markdown/with-html";
-import { Content, PostTitle, Article } from "./styles";
-import { FormattedDate } from "../FormattedDate";
-import { CodeRenderer } from "../CodeRenderer";
+import React, { FunctionComponent } from "react"
+import ReactMarkdown from "react-markdown/with-html"
+import { Content, PostTitle, Article } from "./styles"
+import { FormattedDate } from "../FormattedDate"
+import { CodeRenderer } from "../CodeRenderer"
 
 interface PostProps {
   data: {
-    id: string;
-    title: string;
-    date: string;
-    contentHtml: string;
-  };
+    id: string
+    title: string
+    date: string
+    contentHtml: string
+  }
 }
 
 export const PostBody: FunctionComponent<PostProps> = ({ data }) => {
@@ -28,5 +28,5 @@ export const PostBody: FunctionComponent<PostProps> = ({ data }) => {
         />
       </Article>
     </Content>
-  );
-};
+  )
+}

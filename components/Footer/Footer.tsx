@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
-import { Container, Copyright, Github, Twitter, LinkedIn } from "./styles";
+import React, { FunctionComponent } from "react"
+import { Container, Copyright, Github, Twitter, LinkedIn } from "./styles"
 
 export const Footer: FunctionComponent = () => {
-  const year = new Date().getFullYear();
+  const year = new Date().getFullYear()
 
   return (
     <>
@@ -19,5 +19,5 @@ export const Footer: FunctionComponent = () => {
         </a>
       </Container>
     </>
-  );
-};
+  )
+}

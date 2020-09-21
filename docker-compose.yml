@@ -1,6 +1,7 @@
 version: "3.8"
 services:
   blog:
+    user: ${UID}:${GID}
     tty: true
     stdin_open: true
     container_name: blog

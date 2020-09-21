@@ -1,7 +1,7 @@
-import Head from "next/head";
-import { FunctionComponent } from "react";
-import { Layout } from "../components/Layout";
-import { Landing } from "../components/Landing";
+import Head from "next/head"
+import { FunctionComponent } from "react"
+import { Layout } from "../components/Layout"
+import { Landing } from "../components/Landing"
 
 const Home: FunctionComponent = () => {
   return (
@@ -11,7 +11,7 @@ const Home: FunctionComponent = () => {
       </Head>
       <Landing />
     </Layout>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

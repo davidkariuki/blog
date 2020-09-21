@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from "react";
-import { Container, Code, Message } from "./styles";
+import React, { FunctionComponent } from "react"
+import { Container, Code, Message } from "./styles"
 
 interface CustomErrorProps {
-  code: number;
-  message: string;
+  code: number
+  message: string
 }
 
 export const CustomError: FunctionComponent<CustomErrorProps> = ({
@@ -17,5 +17,5 @@ export const CustomError: FunctionComponent<CustomErrorProps> = ({
         <Message>{message}</Message>
       </Container>
     </>
-  );
-};
+  )
+}

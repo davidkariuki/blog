@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-`;
+`
 
 export const Main = styled.main`
   flex-grow: 1;
@@ -12,4 +12,4 @@ export const Main = styled.main`
   @media only screen and (max-width: 37rem) {
     padding: var(--mobile-padding);
   }
-`;
+`

@@ -1,1 +1,1 @@
-export * from "./MapPanel";
+export * from "./MapPanel"

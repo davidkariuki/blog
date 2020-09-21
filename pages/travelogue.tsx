@@ -1,31 +1,31 @@
-import React, { FunctionComponent } from "react";
-import Head from "next/head";
-import { GetStaticProps } from "next";
-import dynamic from "next/dynamic";
-import { Header } from "../components/Header";
-import { MapLayout } from "../components/MapLayout";
-import { getDestinations } from "../lib/destinations";
-import { Destination } from "../shared/types";
+import React, { FunctionComponent } from "react"
+import Head from "next/head"
+import { GetStaticProps } from "next"
+import dynamic from "next/dynamic"
+import { Header } from "../components/Header"
+import { MapLayout } from "../components/MapLayout"
+import { getDestinations } from "../lib/destinations"
+import { Destination } from "../shared/types"
 
 const Map = dynamic<any>(
   (() => import("../components/Map").then((mod) => mod.Map)) as any,
   {
     ssr: false,
   }
-);
+)
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await getDestinations();
+  const data = await getDestinations()
 
   return {
     props: {
       data,
     },
-  };
-};
+  }
+}
 
 interface DestinationsProps {
-  data: Destination[];
+  data: Destination[]
 }
 
 const Travelogue: FunctionComponent<DestinationsProps> = ({ data }) => {
@@ -39,7 +39,7 @@ const Travelogue: FunctionComponent<DestinationsProps> = ({ data }) => {
         <Map markers={data} />
       </MapLayout>
     </>
-  );
-};
+  )
+}
 
-export default Travelogue;
+export default Travelogue

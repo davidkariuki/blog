@@ -1,8 +1,6 @@
 ---
-layout: post
 title: "Playing with ruby hashes"
 date: 2014-05-08 23:55:53 -0700
-comments: true
 categories: [ruby]
 ---
 
@@ -24,6 +22,7 @@ a key that does not exist in the hash, for example:
 upcase = Hash.new { |hash, k| "#{k}".upcase }  #=> {}
 upcase['foo']                                  #=> "FOO"
 ```
+
 You can also modify the hash within the callback. Here's a more useful
 example where we create a
 [memoized](http://en.wikipedia.org/wiki/Memoization) version of the fibonacci sequence:
@@ -50,4 +49,3 @@ recursive calls needed to compute the next fibonacci number.
 puts fibonacci[5]    #=> 5
 puts fibonacci       #{2=>1, 1=>1, 3=>2, 4=>3, 5=>5}
 ```
-

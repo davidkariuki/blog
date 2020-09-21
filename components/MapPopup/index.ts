@@ -1,1 +1,1 @@
-export * from "./MapPopup";
+export * from "./MapPopup"

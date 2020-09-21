@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const Panel = styled.div`
   position: absolute;
@@ -10,13 +10,13 @@ export const Panel = styled.div`
   background: var(--primary-color);
   box-shadow: var(--shadow);
   z-index: 2;
-`;
+`
 
 export const Title = styled.h3`
   color: var(--accent-text);
   margin: 0;
-`;
+`
 
 export const Content = styled.div`
   color: var(--regular-text);
-`;
+`

@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from "react";
-import { NavbarContainer, NavbarLink } from "./styles";
-import Link from "next/link";
+import React, { FunctionComponent } from "react"
+import { NavbarContainer, NavbarLink } from "./styles"
+import Link from "next/link"
 
 export const Header: FunctionComponent = () => {
   return (
@@ -15,5 +15,5 @@ export const Header: FunctionComponent = () => {
         <NavbarLink>travelogue</NavbarLink>
       </Link>
     </NavbarContainer>
-  );
-};
+  )
+}

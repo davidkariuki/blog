@@ -1,8 +1,6 @@
 ---
-layout: post
 title: "k-means clustering with ruby"
 date: 2014-05-25 01:39:30 -0700
-comments: true
 categories: [Algorithms, ruby, rspec, TDD, Machine Learning]
 ---
 

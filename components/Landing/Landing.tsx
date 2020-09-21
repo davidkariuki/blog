@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from "react";
-import { Container, Content, Title, Accent } from "./styles";
+import React, { FunctionComponent } from "react"
+import { Container, Content, Title, Accent } from "./styles"
 
 export const Landing: FunctionComponent = () => {
   return (
@@ -14,5 +14,5 @@ export const Landing: FunctionComponent = () => {
         </Content>
       </Container>
     </>
-  );
-};
+  )
+}

@@ -1,12 +1,13 @@
-import React, { FunctionComponent } from "react";
-import Head from "next/head";
-import { GetStaticProps } from "next";
-import { getSortedPostsData } from "../lib/posts";
-import { Layout } from "../components/Layout";
-import { PostsList } from "../components/PostsList";
+import React, { FunctionComponent } from "react"
+import Head from "next/head"
+import { GetStaticProps } from "next"
+import { getSortedPostsData } from "../lib/posts"
+import { Layout } from "../components/Layout"
+import { PostsList } from "../components/PostsList"
+import type { PostMetadata } from "../shared/types"
 
 interface ScribblesProps {
-  allPostsData: any[];
+  allPostsData: PostMetadata[]
 }
 
 const Scribbles: FunctionComponent<ScribblesProps> = ({ allPostsData }) => {
@@ -17,17 +18,17 @@ const Scribbles: FunctionComponent<ScribblesProps> = ({ allPostsData }) => {
       </Head>
       <PostsList posts={allPostsData} />
     </Layout>
-  );
-};
+  )
+}
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = getSortedPostsData();
+  const allPostsData = getSortedPostsData()
 
   return {
     props: {
       allPostsData,
     },
-  };
-};
+  }
+}
 
-export default Scribbles;
+export default Scribbles

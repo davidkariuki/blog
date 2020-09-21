@@ -1,14 +1,14 @@
-import React, { FunctionComponent } from "react";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { atomOneDark } from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import React, { FunctionComponent } from "react"
+import SyntaxHighlighter from "react-syntax-highlighter"
+import { atomOneDark } from "react-syntax-highlighter/dist/cjs/styles/hljs"
 
-interface Props {
-  language?: string;
-  showLineNumbers?: boolean;
-  value?: string;
+interface CodeProps {
+  language?: string
+  showLineNumbers?: boolean
+  value?: string
 }
 
-export const CodeRenderer: FunctionComponent<Props> = ({
+export const CodeRenderer: FunctionComponent<CodeProps> = ({
   children,
   language,
   showLineNumbers,
@@ -28,5 +28,5 @@ export const CodeRenderer: FunctionComponent<Props> = ({
     >
       {value ? value : children}
     </SyntaxHighlighter>
-  );
-};
+  )
+}

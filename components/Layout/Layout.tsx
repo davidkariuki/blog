@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from "react";
-import { Container, Main } from "./styles";
-import { Header } from "../Header";
-import { Footer } from "../Footer";
+import React, { FunctionComponent } from "react"
+import { Container, Main } from "./styles"
+import { Header } from "../Header"
+import { Footer } from "../Footer"
 
 export const Layout: FunctionComponent = ({ children }) => {
   return (
@@ -10,5 +10,5 @@ export const Layout: FunctionComponent = ({ children }) => {
       <Main>{children}</Main>
       <Footer />
     </Container>
-  );
-};
+  )
+}

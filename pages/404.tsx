@@ -1,7 +1,7 @@
-import Head from "next/head";
-import { FunctionComponent } from "react";
-import { Layout } from "../components/Layout";
-import { CustomError } from "../components/CustomError";
+import Head from "next/head"
+import { FunctionComponent } from "react"
+import { Layout } from "../components/Layout"
+import { CustomError } from "../components/CustomError"
 
 const Custom404: FunctionComponent = () => {
   return (
@@ -11,7 +11,7 @@ const Custom404: FunctionComponent = () => {
       </Head>
       <CustomError code={404} message="This page could not be found" />
     </Layout>
-  );
-};
+  )
+}
 
-export default Custom404;
+export default Custom404

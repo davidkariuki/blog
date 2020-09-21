@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const NavbarContainer = styled.header`
   position: sticky;
@@ -14,10 +14,10 @@ export const NavbarContainer = styled.header`
   background-color: var(--primary-color);
   box-shadow: var(--shadow-strong);
   z-index: 2;
-`;
+`
 
 interface NavbarLinkProps {
-  brand?: boolean;
+  brand?: boolean
 }
 
 export const NavbarLink = styled.div<NavbarLinkProps>`
@@ -37,4 +37,4 @@ export const NavbarLink = styled.div<NavbarLinkProps>`
   &:last-child {
     padding-right: 0;
   }
-`;
+`
