@@ -9,7 +9,7 @@ const svg = css`
   width: 1rem;
   height: 1rem;
   &:hover {
-    fill: var(--accent-text);
+    fill: var(--accent-color);
   }
 `
 export const Container = styled.footer`

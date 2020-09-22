@@ -11,12 +11,14 @@ interface ScribblesProps {
 }
 
 const Scribbles: FunctionComponent<ScribblesProps> = ({ allPostsData }) => {
+  const categories = getCategories(allPostsData)
+
   return (
     <Layout>
       <Head>
         <title>dk | scribbles</title>
       </Head>
-      <PostsList posts={allPostsData} />
+      <PostsList categories={categories} posts={allPostsData} />
     </Layout>
   )
 }
@@ -32,3 +34,10 @@ export const getStaticProps: GetStaticProps = async () => {
 }
 
 export default Scribbles
+
+// return unique categories
+const getCategories = (posts: PostMetadata[]): string[] => {
+  const categories: string[] = posts.map((post) => post.category)
+
+  return [...new Set(categories)]
+}

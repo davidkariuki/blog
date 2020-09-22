@@ -5,6 +5,7 @@ import type { Post, PostMetadata } from "../shared/types"
 
 const postsDirectory = path.join(process.cwd(), "posts")
 
+// get metadata for all posts
 export const getSortedPostsData = (): PostMetadata[] => {
   const fileNames = fs.readdirSync(postsDirectory)
   const allPostsData = fileNames.map((fileName) => {
@@ -21,7 +22,10 @@ export const getSortedPostsData = (): PostMetadata[] => {
 
   // return posts by date
   return allPostsData.sort((a, b) => {
-    if (a.date < b.date) {
+    const dateA = new Date(a.date)
+    const dateB = new Date(b.date)
+
+    if (dateA < dateB) {
       return 1
     } else {
       return -1
@@ -45,6 +49,7 @@ export const getAllPostIds = (): PostIds[] => {
   })
 }
 
+// get data for a single post
 export const getPostData = async (id: string): Promise<Post> => {
   const fullPath = path.join(postsDirectory, `${id}.md`)
   const fileContents = fs.readFileSync(fullPath, "utf8")

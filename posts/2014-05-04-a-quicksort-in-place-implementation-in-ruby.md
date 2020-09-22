@@ -1,7 +1,8 @@
 ---
-title: "Quicksort (in-place) with Ruby"
-date: 2014-05-04 18:35:38 -0700
-categories: [Algorithms, ruby, rspec, TDD]
+title: Quicksort (in-place) with Ruby
+description: Quicksort in ruby
+date: May 4, 2014 18:35:38
+category: Ruby
 ---
 
 Quicksort is a popular [sorting algorithm](http://en.wikipedia.org/wiki/Sorting_algorithm) with <span class='courier'>O(nlogn)</span> best and average-case

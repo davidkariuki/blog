@@ -27,7 +27,7 @@ export const NavbarLink = styled.div<NavbarLinkProps>`
   font-weight: 700;
   font-size: ${(props) => (props.brand ? "1.5rem" : "1rem")};
   color: ${(props) =>
-    props.brand ? "var(--accent-text)" : "var(--light-text)"};
+    props.brand ? "var(--accent-color)" : "var(--light-text)"};
   margin-right: ${(props) => (props.brand ? "auto" : 0)};
   line-height: 1;
 

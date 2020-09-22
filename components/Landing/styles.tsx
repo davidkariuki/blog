@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
-  height: 100%;
+  height: calc(100vh - (var(--nav-height) * 2));
   padding: 0 2rem;
   display: flex;
   flex-direction: column;
@@ -9,7 +9,7 @@ export const Container = styled.div`
 `
 
 export const Accent = styled.span`
-  color: var(--accent-text);
+  color: var(--accent-color);
 `
 
 export const Title = styled.h1`

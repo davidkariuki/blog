@@ -13,7 +13,7 @@ export const Panel = styled.div`
 `
 
 export const Title = styled.h3`
-  color: var(--accent-text);
+  color: var(--accent-color);
   margin: 0;
 `
 

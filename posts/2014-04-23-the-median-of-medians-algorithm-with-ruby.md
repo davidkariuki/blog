@@ -1,7 +1,8 @@
 ---
-title: "The median of medians algorithm with ruby"
-date: 2014-04-23 22:24:16 -0700
-categories: [Algorithms, ruby, rspec, TDD]
+title: The median of medians algorithm with ruby
+description: Find the kth smallest number, in ruby
+date: April 23, 2014 22:24:16
+category: Ruby
 ---
 
 I stumbled across the median of medians algorithm when I was looking for an efficient way

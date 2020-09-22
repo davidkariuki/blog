@@ -9,8 +9,9 @@ export const Landing: FunctionComponent = () => {
           Hello, I'm <Accent>David.</Accent>
         </Title>
         <Content>
-          I'm a software developer interested in all things web. I'm currently
-          working on a Rails + React + Angular stack.
+          I'm a software engineer interested in all things web and currently
+          living in London. I like to code, travel and dance, and this is where
+          I write down my thoughts, code snippets and life experiences.
         </Content>
       </Container>
     </>

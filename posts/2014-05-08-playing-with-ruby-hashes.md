@@ -1,7 +1,8 @@
 ---
-title: "Playing with ruby hashes"
-date: 2014-05-08 23:55:53 -0700
-categories: [ruby]
+title: Playing with ruby hashes
+description: Hash#new tricks
+date: May 8, 2014 23:55:53
+category: Ruby
 ---
 
 Ruby's `Hash#new` method accepts an optional parameter which is

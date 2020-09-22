@@ -1,7 +1,8 @@
 ---
-title: "k-means clustering with ruby"
-date: 2014-05-25 01:39:30 -0700
-categories: [Algorithms, ruby, rspec, TDD, Machine Learning]
+title: k-means clustering with ruby
+description: "Machine Learning / clustering algorithms in ruby"
+date: May 25, 2014 01:39:30
+category: Ruby
 ---
 
 Let's say we have a collection of businesses in three distinct regions:
