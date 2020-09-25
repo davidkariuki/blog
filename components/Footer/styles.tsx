@@ -7,6 +7,7 @@ import lin from "../../public/images/linkedin.svg"
 const svg = css`
   fill: var(--light-text);
   width: 1rem;
+  margin: 0 1rem;
   height: 1rem;
   &:hover {
     fill: var(--accent-color);
@@ -14,7 +15,6 @@ const svg = css`
 `
 export const Container = styled.footer`
   display: flex;
-  justify-content: space-evenly;
   padding: var(--desktop-padding);
   @media only screen and (max-width: 37rem) {
     padding: var(--mobile-padding);
@@ -27,6 +27,7 @@ export const Container = styled.footer`
 
 export const Copyright = styled.div`
   font-size: 0.8rem;
+  margin-right: auto;
 `
 
 export const Github = styled(gh)`

@@ -11,8 +11,8 @@ export const Header: FunctionComponent = () => {
       <Link href="/scribbles">
         <NavbarLink>scribbles</NavbarLink>
       </Link>
-      <Link href="/travelogue">
-        <NavbarLink>travelogue</NavbarLink>
+      <Link href="/about">
+        <NavbarLink>about</NavbarLink>
       </Link>
     </NavbarContainer>
   )

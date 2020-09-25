@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown/with-html"
 import { PostTitle, Article } from "./styles"
 import { FormattedDate } from "../FormattedDate"
 import { CodeRenderer } from "../CodeRenderer"
+import { Comments } from "../Comments"
 
 interface PostProps {
   data: {
@@ -27,6 +28,7 @@ export const PostBody: FunctionComponent<PostProps> = ({ data }) => {
           }}
         />
       </Article>
+      <Comments />
     </>
   )
 }

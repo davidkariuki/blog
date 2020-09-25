@@ -1,5 +1,9 @@
 import React, { FunctionComponent, useState } from "react"
 import Link from "next/link"
+import type { PostMetadata } from "../../shared/types"
+import { FormattedDate } from "../FormattedDate"
+import { Category } from "../Category"
+import { Tag } from "../Category/styles"
 import {
   Content,
   Card,
@@ -9,10 +13,6 @@ import {
   PostTitle,
   TagsList,
 } from "./styles"
-import type { PostMetadata } from "../../shared/types"
-import { FormattedDate } from "../FormattedDate"
-import { Category } from "../Category"
-import { Tag } from "../Category/styles"
 
 interface PostsListProps {
   posts: PostMetadata[]
