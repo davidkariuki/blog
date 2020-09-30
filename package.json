@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@types/next-seo": "^1.10.0",
+    "@types/react-ga": "^2.3.0",
     "@types/react-is": "^16.7.1",
     "@types/react-map-gl": "^5.2.7",
     "@types/react-syntax-highlighter": "^11.0.5",
@@ -16,8 +17,10 @@
     "next": "^9.5.3",
     "next-react-svg": "1.1.2",
     "next-seo": "^4.10.0",
+    "prop-types": "^15.7.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-ga": "^3.1.2",
     "react-is": "^16.13.1",
     "react-map-gl": "^5.2.8",
     "react-markdown": "^4.3.1",
