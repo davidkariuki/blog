@@ -1,5 +1,5 @@
-import Head from "next/head"
 import React, { FunctionComponent } from "react"
+import { NextSeo } from "next-seo"
 import { GetStaticPaths, GetStaticProps } from "next"
 import { getAllPostIds, getPostData } from "../../lib/posts"
 import { Layout } from "../../components/Layout"
@@ -10,6 +10,7 @@ interface PostData {
     id: string
     title: string
     date: string
+    description: string
     contentHtml: string
   }
 }
@@ -36,9 +37,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 const Post: FunctionComponent<PostData> = ({ postData }) => {
   return (
     <Layout>
-      <Head>
-        <title>{postData.title}</title>
-      </Head>
+      <NextSeo
+        canonical={`https://davidkariuki.com/scribbles/${postData.id}`}
+        title={postData.title}
+        description={postData.description}
+      />
       <PostBody data={postData} />
     </Layout>
   )

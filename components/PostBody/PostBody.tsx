@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react"
 import ReactMarkdown from "react-markdown/with-html"
-import { PostTitle, Article } from "./styles"
+import { PostTitle } from "./styles"
+import { Article } from "../../styles/shared"
 import { FormattedDate } from "../FormattedDate"
 import { CodeRenderer } from "../CodeRenderer"
 import { Comments } from "../Comments"

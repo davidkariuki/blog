@@ -8,7 +8,3 @@ export const PostTitle = styled.h2`
   font-weight: 400;
   margin-bottom: 0.6rem;
 `
-
-export const Article = styled.article`
-  margin-top: 2rem;
-`

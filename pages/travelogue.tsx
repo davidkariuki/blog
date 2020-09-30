@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react"
-import Head from "next/head"
+import { NextSeo } from "next-seo"
 import { GetStaticProps } from "next"
 import dynamic from "next/dynamic"
 import { Header } from "../components/Header"
@@ -31,9 +31,10 @@ interface DestinationsProps {
 const Travelogue: FunctionComponent<DestinationsProps> = ({ data }) => {
   return (
     <>
-      <Head>
-        <title>travelogue</title>
-      </Head>
+      <NextSeo
+        title="travelogue"
+        canonical="https://davidkariuki.com/travelogue"
+      />
       <Header></Header>
       <MapLayout>
         <Map markers={data} />

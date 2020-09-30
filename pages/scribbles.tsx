@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react"
-import Head from "next/head"
+import { NextSeo } from "next-seo"
 import { GetStaticProps } from "next"
 import { getSortedPostsData } from "../lib/posts"
 import { Layout } from "../components/Layout"
@@ -15,9 +15,10 @@ const Scribbles: FunctionComponent<ScribblesProps> = ({ allPostsData }) => {
 
   return (
     <Layout>
-      <Head>
-        <title>scribbles</title>
-      </Head>
+      <NextSeo
+        title="scribbles"
+        canonical="https://davidkariuki.com/scribbles"
+      />
       <PostsList categories={categories} posts={allPostsData} />
     </Layout>
   )
