@@ -32,7 +32,7 @@ const Travelogue: FunctionComponent<DestinationsProps> = ({ data }) => {
   return (
     <>
       <Head>
-        <title>dk | travelogue</title>
+        <title>travelogue</title>
       </Head>
       <Header></Header>
       <MapLayout>

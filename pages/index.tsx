@@ -7,7 +7,7 @@ const Home: FunctionComponent = () => {
   return (
     <Layout>
       <Head>
-        <title>dk | home</title>
+        <title>home</title>
       </Head>
       <Landing />
     </Layout>

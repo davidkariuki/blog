@@ -1,10 +1,14 @@
 import React, { FunctionComponent } from "react"
+import Head from "next/head"
 import { Layout } from "../components/Layout"
 import { Article } from "../components/PostBody/styles"
 
 const About: FunctionComponent = () => {
   return (
     <Layout>
+      <Head>
+        <title>about</title>
+      </Head>
       <Article>
         <p>
           I am a software engineer currently living in London, UK. While I am

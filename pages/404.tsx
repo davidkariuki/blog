@@ -7,7 +7,7 @@ const Custom404: FunctionComponent = () => {
   return (
     <Layout>
       <Head>
-        <title>dk | 404</title>
+        <title>404</title>
       </Head>
       <CustomError code={404} message="This page could not be found" />
     </Layout>
