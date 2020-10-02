@@ -14,6 +14,9 @@ export const Header: FunctionComponent = () => {
       <Link href="/about">
         <NavbarLink>about</NavbarLink>
       </Link>
+      <Link href="/travelogue">
+        <NavbarLink>travelogue</NavbarLink>
+      </Link>
     </NavbarContainer>
   )
 }

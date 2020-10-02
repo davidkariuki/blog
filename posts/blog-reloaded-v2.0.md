@@ -1,0 +1,63 @@
+---
+title: Blog Reloaded, v2.0
+description: Writing again after a 6-year hiatus
+date: Oct 2, 2020 01:56:38
+category: Writing
+---
+
+When I started this blog in 2014, I was still a fresh developer, riding the Ruby
+on Rails high and enjoying every bit of it. I was on an unstoppable quest to
+gain knowledge and share it in the form of a tech blog. However, just after five
+posts, I ran face-first into a wall. Clearly, my motivation wasn't as infallible
+as I thought it was.
+
+### Early Beginnings
+
+Writing has always been a passion of mine, so it should not have been hard to
+stay on the task. I started writing when I was very young. First with short
+stories, and then later poetry. I had a small group of friends in secondary
+school who liked to read my fiction. During my university years, one of my
+favourite weekend activities was to make camp in coffee shops, writing. I was a
+frequent patron at Starbucks and Panera Bread all over Manhattan and in Hoboken.
+I wrote a lot. In 2008, one of my poems got published by a collegiate literary
+anthology.
+
+### So why did I stop writing
+
+As I gained knowledge, I realised how much I didn't know, and it was
+considerably disheartening. Perhaps it was a bit of impostor syndrome. Writing
+started to feel like a chore -- it evoked unpleasant memories of writing
+research papers in university. I wanted the freedom of creative writing but
+didn't know how to do that with a tech blog. Eventually, I relented to the
+pressure and found ways to make myself too busy to write.
+
+### Reviving My Blog
+
+An idea that encouraged me to reboot the word fountain was to stop limiting
+myself to writing about tech. If I can write about anything, then my canvas is
+infinite.
+
+Octopress, which was the static site generator that I had used, had become
+abandonware. I resolved not to spend too much time musing on which platform
+would be a suitable host for my blog. I just happened to be interested in
+learning Next.js and polishing up my TypeScript, so that became my choice.
+Transitioning from Octopress was easy because I didn't have a lot of posts, and
+the existing ones were simple Markdown files.
+
+### Future Plans
+
+I don't have a concrete plan, other than to continue writing. I released the
+site in an incomplete state because I didn't want the process of building it to
+become a hindrance. Consequently, there are some improvements that I want to
+implement, including:
+
+- Moving from plain Markdown to MDX.
+- Adding a way to navigate my travelogue chronologically.
+- Writing tests with Jest.
+- Theming my site to add light mode.
+- Rewriting navigation for mobile devices.
+- Adding an RSS feed, is this still a thing in 2020?
+- Implementing pagination.
+
+You can see the source for this blog
+[here](https://github.com/davidkariuki/blog).
