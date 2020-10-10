@@ -1,7 +1,6 @@
-import React, { useState, FunctionComponent } from "react"
-import ReactMapGL, { Popup, FlyToInterpolator } from "react-map-gl"
+import React, { useState, FunctionComponent, useEffect } from "react"
+import ReactMapGL, { FlyToInterpolator } from "react-map-gl"
 import { Places } from "../Places"
-import { MapPopup } from "../MapPopup"
 import { Destination } from "../../shared/types"
 
 export interface ViewportProps {
@@ -18,11 +17,16 @@ export interface ViewportProps {
 
 interface MapProps {
   markers: Destination[]
+  destination: Destination
+  destinationChanged(d: Destination): void
 }
 
-export const Map: FunctionComponent<MapProps> = ({ markers }) => {
+export const Map: FunctionComponent<MapProps> = ({
+  markers,
+  destination,
+  destinationChanged,
+}) => {
   const apiToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
-  const [place, setPlace] = useState<Destination>()
   const [viewport, setViewport] = useState({
     width: "100%",
     height: "100%",
@@ -33,33 +37,21 @@ export const Map: FunctionComponent<MapProps> = ({ markers }) => {
     pitch: 0,
   } as ViewportProps)
 
-  const popupClicked = (p: Destination) => {
-    setPlace(p)
-    const newCoords = {
-      latitude: p.latitude,
-      longitude: p.longitude,
-      zoom: 8,
-      transitionInterpolator: new FlyToInterpolator({ speed: 1.5 }),
-      transitionDuration: "auto",
-    }
-    setViewport({ ...viewport, ...newCoords } as ViewportProps)
-  }
+  useEffect(() => {
+    if (destination) {
+      const newCoords = {
+        latitude: destination.latitude,
+        longitude: destination.longitude,
+        zoom: 7,
+        transitionInterpolator: new FlyToInterpolator({ speed: 1.5 }),
+        transitionDuration: "auto",
+      }
 
-  const renderPopup = () => {
-    if (place) {
-      return (
-        <Popup
-          anchor="top"
-          longitude={place.longitude}
-          latitude={place.latitude}
-          closeOnClick={false}
-          onClose={() => setPlace(undefined)}
-        >
-          <MapPopup place={place} />
-        </Popup>
-      )
+      setViewport({ ...viewport, ...newCoords } as ViewportProps)
     }
-  }
+  }, [destination])
+
+  const markerClicked = (d: Destination) => destinationChanged(d)
 
   return (
     <ReactMapGL
@@ -69,8 +61,7 @@ export const Map: FunctionComponent<MapProps> = ({ markers }) => {
       mapboxApiAccessToken={apiToken}
       dragRotate={false}
     >
-      <Places data={markers} onClick={(p) => popupClicked(p)} />
-      {renderPopup()}
+      <Places data={markers} onClick={(d) => markerClicked(d)} />
     </ReactMapGL>
   )
 }

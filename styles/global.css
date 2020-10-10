@@ -57,3 +57,16 @@ img {
 .mapboxgl-popup-close-button {
   color: var(--accent-color);
 }
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 0.625rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+}

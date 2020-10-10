@@ -1,9 +1,10 @@
-import React, { FunctionComponent } from "react"
+import React, { FunctionComponent, useState } from "react"
 import { NextSeo } from "next-seo"
 import { GetStaticProps } from "next"
 import dynamic from "next/dynamic"
 import { Header } from "../components/Header"
 import { MapLayout } from "../components/MapLayout"
+import { MapPanel } from "../components/MapPanel"
 import { getDestinations } from "../lib/destinations"
 import { Destination } from "../shared/types"
 
@@ -29,6 +30,8 @@ interface DestinationsProps {
 }
 
 const Travelogue: FunctionComponent<DestinationsProps> = ({ data }) => {
+  const [destination, setDest] = useState<Destination>(data[0])
+
   return (
     <>
       <NextSeo
@@ -37,7 +40,16 @@ const Travelogue: FunctionComponent<DestinationsProps> = ({ data }) => {
       />
       <Header></Header>
       <MapLayout>
-        <Map markers={data} />
+        <MapPanel
+          destination={destination}
+          destinationChanged={setDest}
+          destinations={data}
+        />
+        <Map
+          destination={destination}
+          destinationChanged={setDest}
+          markers={data}
+        />
       </MapLayout>
     </>
   )

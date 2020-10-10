@@ -8,12 +8,15 @@ const client = require("contentful").createClient({
 })
 
 export const getDestinations = async (): Promise<Destination[]> => {
-  const entries = await client.getEntries()
+  const entries = await client.getEntries({
+    content_type: "destination",
+    order: "-fields.date",
+  })
 
   const data = entries.items.map((item: any) => {
     const image = item.fields.image
     const imageUrl = {
-      image: image ? `${image.fields.file.url}?w=240` : null,
+      image: image ? `${image.fields.file.url}?w=310` : null,
     }
     return { ...item.fields, ...imageUrl }
   })

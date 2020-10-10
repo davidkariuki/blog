@@ -1,6 +1,7 @@
 export interface Destination {
   name: string
-  date?: string
+  date: string
+  description?: string
   image?: string
   latitude: number
   longitude: number

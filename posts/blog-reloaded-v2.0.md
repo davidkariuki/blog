@@ -52,7 +52,7 @@ become a hindrance. Consequently, there are some improvements that I want to
 implement, including:
 
 - Moving from plain Markdown to MDX.
-- Adding a way to navigate my travelogue chronologically.
+- ~~Adding a way to navigate my travelogue chronologically.~~
 - Writing tests with Jest.
 - Theming my site to add light mode.
 - Rewriting navigation for mobile devices.
