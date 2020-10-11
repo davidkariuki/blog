@@ -38,17 +38,16 @@ export const Map: FunctionComponent<MapProps> = ({
   })
 
   useEffect(() => {
-    if (selectedDestination) {
-      const newCoords = {
-        latitude: selectedDestination.latitude,
-        longitude: selectedDestination.longitude,
-        zoom: 6,
-        transitionInterpolator: new FlyToInterpolator({ speed: 1.5 }),
-        transitionDuration: "auto",
-      }
-
-      setViewport({ ...viewport, ...newCoords } as ViewportProps)
+    const zoom = viewport.zoom > 8 ? viewport.zoom : 8
+    const newCoords = {
+      latitude: selectedDestination.latitude,
+      longitude: selectedDestination.longitude,
+      zoom: zoom,
+      transitionInterpolator: new FlyToInterpolator({ speed: 1.5 }),
+      transitionDuration: "auto",
     }
+
+    setViewport({ ...viewport, ...newCoords } as ViewportProps)
   }, [selectedDestination])
 
   const markerClicked = (d: Destination) => destinationChanged(d)
