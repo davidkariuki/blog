@@ -14,11 +14,13 @@ export const getDestinations = async (): Promise<Destination[]> => {
   })
 
   const data = entries.items.map((item: any) => {
+    const id = item.sys.id
     const image = item.fields.image
     const imageUrl = {
       image: image ? `${image.fields.file.url}?w=310` : null,
     }
-    return { ...item.fields, ...imageUrl }
+
+    return { id, ...item.fields, ...imageUrl }
   })
 
   return data

@@ -5,23 +5,23 @@ import { FormattedDate } from "../FormattedDate"
 
 interface PanelProps {
   destinations: Destination[]
-  destination: Destination
+  selectedDestination: Destination
   destinationChanged(d: Destination): void
 }
 
 export const MapPanel: FunctionComponent<PanelProps> = ({
   destinations,
-  destination,
+  selectedDestination,
   destinationChanged,
 }) => {
   const itemRefs = useRef<HTMLLabelElement[]>([])
 
   useEffect(() => {
-    const index = destinations.indexOf(destination)
+    const index = destinations.indexOf(selectedDestination)
     const ref = itemRefs.current[index]
 
-    ref && ref.scrollIntoView({ behavior: "smooth" })
-  }, [destination])
+    if (ref) ref.scrollIntoView({ behavior: "smooth" })
+  }, [selectedDestination])
 
   return (
     <Accordion>
@@ -32,13 +32,13 @@ export const MapPanel: FunctionComponent<PanelProps> = ({
               type="radio"
               name="destination"
               value={dest.name}
-              id={`section-${index}`}
+              id={`section-${dest.id}`}
               onChange={() => {}}
-              checked={destination && dest.name === destination.name}
+              checked={dest.id === selectedDestination.id}
             />
             <Label
-              htmlFor={`section-${index}`}
-              ref={(el) => (itemRefs.current[index] = el!)}
+              htmlFor={`section-${dest.id}`}
+              ref={(el) => (itemRefs.current[index] = el as HTMLLabelElement)}
             >
               {dest.name}
               <FormattedDate dateString={dest.date} />

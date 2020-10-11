@@ -30,7 +30,7 @@ interface DestinationsProps {
 }
 
 const Travelogue: FunctionComponent<DestinationsProps> = ({ data }) => {
-  const [destination, setDest] = useState<Destination>(data[0])
+  const [selectedDestination, setSelectedDestination] = useState(data[0])
 
   return (
     <>
@@ -41,13 +41,13 @@ const Travelogue: FunctionComponent<DestinationsProps> = ({ data }) => {
       <Header></Header>
       <MapLayout>
         <MapPanel
-          destination={destination}
-          destinationChanged={setDest}
+          selectedDestination={selectedDestination}
+          destinationChanged={setSelectedDestination}
           destinations={data}
         />
         <Map
-          destination={destination}
-          destinationChanged={setDest}
+          selectedDestination={selectedDestination}
+          destinationChanged={setSelectedDestination}
           markers={data}
         />
       </MapLayout>

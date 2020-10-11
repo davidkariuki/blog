@@ -17,17 +17,17 @@ export interface ViewportProps {
 
 interface MapProps {
   markers: Destination[]
-  destination: Destination
+  selectedDestination: Destination
   destinationChanged(d: Destination): void
 }
 
 export const Map: FunctionComponent<MapProps> = ({
   markers,
-  destination,
+  selectedDestination,
   destinationChanged,
 }) => {
   const apiToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
-  const [viewport, setViewport] = useState({
+  const [viewport, setViewport] = useState<ViewportProps>({
     width: "100%",
     height: "100%",
     latitude: 45.457582,
@@ -35,21 +35,21 @@ export const Map: FunctionComponent<MapProps> = ({
     zoom: 1.2,
     bearing: 0,
     pitch: 0,
-  } as ViewportProps)
+  })
 
   useEffect(() => {
-    if (destination) {
+    if (selectedDestination) {
       const newCoords = {
-        latitude: destination.latitude,
-        longitude: destination.longitude,
-        zoom: 7,
+        latitude: selectedDestination.latitude,
+        longitude: selectedDestination.longitude,
+        zoom: 6,
         transitionInterpolator: new FlyToInterpolator({ speed: 1.5 }),
         transitionDuration: "auto",
       }
 
       setViewport({ ...viewport, ...newCoords } as ViewportProps)
     }
-  }, [destination])
+  }, [selectedDestination])
 
   const markerClicked = (d: Destination) => destinationChanged(d)
 

@@ -5,7 +5,6 @@ export const Accordion = styled.div`
   max-width: 25rem;
   min-width: 20rem;
   box-shadow: var(--shadow);
-  border-radius: 0.3125rem;
   overflow: auto;
   overscroll-behavior: contain;
   background: var(--secondary-color);
@@ -21,7 +20,7 @@ export const Label = styled.label`
   transition: background 0.1s;
 
   &:hover {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.3);
   }
 
   &::after {
