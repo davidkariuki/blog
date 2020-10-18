@@ -1,15 +1,15 @@
 import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
-import type { Post, PostMetadata } from "../shared/types"
+import type { PostMetadata } from "../shared/types"
 
-const postsDirectory = path.join(process.cwd(), "posts")
+const postsDirectory = path.join(process.cwd(), "pages/scribbles")
 
 // get metadata for all posts
 export const getSortedPostsData = (): PostMetadata[] => {
   const fileNames = fs.readdirSync(postsDirectory)
   const allPostsData = fileNames.map((fileName) => {
-    const id = fileName.replace(/\.md$/, "")
+    const id = fileName.replace(/\.mdx$/, "")
     const fullPath = path.join(postsDirectory, fileName)
     const fileContents = fs.readFileSync(fullPath, "utf8")
     const matterResult = matter(fileContents)
@@ -43,22 +43,8 @@ export const getAllPostIds = (): PostIds[] => {
   return fileNames.map((filename) => {
     return {
       params: {
-        id: filename.replace(/\.md$/, ""),
+        id: filename.replace(/\.mdx$/, ""),
       },
     }
   })
-}
-
-// get data for a single post
-export const getPostData = async (id: string): Promise<Post> => {
-  const fullPath = path.join(postsDirectory, `${id}.md`)
-  const fileContents = fs.readFileSync(fullPath, "utf8")
-  const matterResult = matter(fileContents)
-  const contentHtml = matterResult.content
-
-  return {
-    id,
-    contentHtml,
-    ...matterResult.data,
-  } as Post
 }

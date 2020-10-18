@@ -83,7 +83,7 @@ JOIN biology_scores bs ON bs.student_id = s.id
 
 Giving us the following results:
 
-```
+```sql
 | name    | english_score | biology_score | math_score | total_score |
 | ------- | ------------- | ------------- | ---------- |------------ |
 | David   | 85            | 87            | 69         | 241         |
@@ -122,7 +122,7 @@ FROM
 
 Here are the results with math rank:
 
-```
+```sql
 | name    | english_score | biology_score | math_score | total_score | math_rank |
 | ------- | ------------- | ------------- | ---------- | ----------- | --------- |
 | Steve   | 79            | 49            | 93         | 22          | 1         |
@@ -159,7 +159,7 @@ ORDER BY english_score DESC
 
 Results with math and english rank:
 
-```
+```sql
 | name    | english_score | biology_score | math_score | total_score | math_rank | english_rank |
 | ------- | ------------- | ------------- | ---------- | ----------- | --------- | ------------ |
 | David   | 85            |  87           |  69        |  241        | 4         | 1            |
@@ -198,7 +198,7 @@ ORDER BY biology_score DESC
 
 Results with math, english and biology ranks:
 
-```
+```sql
 | name    | english_score | biology_score | math_score | total_score | math_rank | english_rank | biology_rank |
 | ------- | ------------- | ------------- | ---------- | ----------- | --------- | ------------ | ------------ |
 | Dan     | 28            | 99            | 83         | 210         | 3         | 6            | 1            |
