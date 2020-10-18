@@ -2,12 +2,13 @@ const path = require("path")
 const withReactSvg = require("next-react-svg")
 const withMdxEnhanced = require("next-mdx-enhanced")
 const rehypePrism = require("@mapbox/rehype-prism")
+const externalLinks = require("remark-external-links")
 
 module.exports = withMdxEnhanced({
   defaultLayout: true,
   fileExtensions: ["mdx", "md"],
   rehypePlugins: [rehypePrism],
-  remarkPlugins: [],
+  remarkPlugins: [externalLinks],
 })(
   withReactSvg({
     include: path.resolve(__dirname, "public/images"),
