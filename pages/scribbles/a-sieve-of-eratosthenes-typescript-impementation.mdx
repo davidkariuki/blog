@@ -1,0 +1,124 @@
+---
+title: A Sieve of Eratosthenes TypeScript implementation
+description:
+  Finding all prime numbers between 2 and n using the Sieve of Eratosthenes
+date: Oct 19, 2020 23:10:56
+category: TypeScript
+---
+
+The [Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)
+is an algorithm for finding all prime numbers between 2 (the smallest prime
+number) and a given limit, n. It has a time complexity of O(n log log n). The
+gist of the algorithm is to mark off all multiples of primes inside this range,
+leaving only the prime numbers themselves.
+
+## The Algorithm
+
+For this example, let n = 10.
+
+Step 1: Create a list of all numbers between 2 and n.
+
+```typescript
+[2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+Step 2: Set p = 2.
+
+Step 3: Mark off all multiples of 2 (excluding 2) until n leaving the following:
+
+```typescript
+[2, 3, 5, 7, 9]
+```
+
+Step 4: Assign the next smallest number that hasn't been marked in the previous
+operation to p. Repeat from step 3.
+
+In this case, the next p is 3. We can safely assume that number is prime.
+Marking off multiples of 3, we are left with the following array:
+
+```typescript
+[2, 3, 5, 7]
+```
+
+Step 5: If there isn't any number left that hasn't been marked off, the
+algorithm is done. The unmarked numbers are the primes between 2 and n,
+inclusive. Our final output is:
+
+```typescript
+[2, 3, 5, 7]
+```
+
+## The Code
+
+Here are a few test cases to check that our implementation does what it's
+supposed to do. The test setup is Enzyme + Jest.
+
+```typescript
+import { sift } from "../../lib/sieve"
+
+describe("Sieve of Eratosthenes", () => {
+  test("sift(0) returns an empty array", () => {
+    expect(sift(0)).toEqual([])
+  })
+
+  test("sift(2) returns [2]", () => {
+    expect(sift(2)).toEqual([2])
+  })
+
+  test("sift(10) returns all primes less than 10", () => {
+    expect(sift(10)).toEqual([2, 3, 5, 7])
+  })
+
+  test("sift(11) returns all primes between 2 and 11", () => {
+    expect(sift(11)).toEqual([2, 3, 5, 7, 11])
+  })
+})
+```
+
+And finally, the implementation:
+
+```typescript
+interface PrimesHash {
+  [index: number]: boolean
+}
+
+export const sift = (limit: number): number[] => {
+  if (limit === 2) return [2]
+
+  // Step 1: create an array from 2..limit inclusive
+  let allNums: number[] = Array.from({ length: limit - 1 }, (_v, k) => k + 2)
+
+  // Step 2: set p = smallest prime
+  let p = 2
+
+  // create a hash of { number: boolean }, from the array created in step 1,
+  // setting every value to true
+  let primes: PrimesHash = allNums.reduce((hash: PrimesHash, num: number) => {
+    hash[num] = true
+    return hash
+  }, {})
+
+  // Step 4: find the next smallest prime and repeat step 3
+  while (p <= limit) {
+    if (primes[p] === true) {
+      // Step 3: mark off all multiples of p. We start from p*p as
+      // an optimisation
+      for (let i = p * p; i <= limit; i += p) {
+        primes[i] = false
+      }
+    }
+    p++
+  }
+
+  // Step 5: return all unmarked numbers
+  return Object.keys(primes).reduce((array: number[], key) => {
+    if (primes[+key] === true) {
+      array.push(+key)
+    }
+
+    return array
+  }, [])
+}
+```
+
+This was a fun algorithm to implement 🎉.
