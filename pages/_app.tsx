@@ -1,18 +1,12 @@
 import "../styles/global.css"
+import "../styles/prism.css"
 import "mapbox-gl/dist/mapbox-gl.css"
 import { AppProps } from "next/app"
-import Head from "next/head"
 import { DefaultSeo } from "next-seo"
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism-tomorrow.min.css"
-        />
-      </Head>
       <DefaultSeo
         canonical="https://davidkariuki.com"
         openGraph={{

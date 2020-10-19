@@ -6,6 +6,7 @@ export interface Destination {
   image?: string
   latitude: number
   longitude: number
+  home?: boolean
 }
 
 export interface PostMetadata {

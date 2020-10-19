@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react"
-import { Container, Copyright, Github, Twitter, LinkedIn } from "./styles"
+import { Container, Copyright } from "./styles"
+import { GithubSvg, TwitterSvg, LinkedInSvg } from "../../styles/shared"
 
 export const Footer: FunctionComponent = () => {
   const year = new Date().getFullYear()
@@ -9,13 +10,13 @@ export const Footer: FunctionComponent = () => {
       <Container>
         <Copyright>© David Kariuki {year}</Copyright>
         <a href="https://github.com/davidkariuki" target="_blank">
-          <Github />
+          <GithubSvg />
         </a>
         <a href="https://twitter.com/davidkariuki" target="_blank">
-          <Twitter />
+          <TwitterSvg />
         </a>
         <a href="https://www.linkedin.com/in/dkariuki/" target="_blank">
-          <LinkedIn />
+          <LinkedInSvg />
         </a>
       </Container>
     </>
