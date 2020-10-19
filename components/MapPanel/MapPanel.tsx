@@ -2,6 +2,7 @@ import React, { FunctionComponent, useRef, useEffect } from "react"
 import { Content, Accordion, Label, Input, ImageContainer } from "./styles"
 import { Destination } from "../../shared/types"
 import { FormattedDate } from "../FormattedDate"
+import LazyLoad from "react-lazyload"
 
 interface PanelProps {
   destinations: Destination[]
@@ -45,7 +46,11 @@ export const MapPanel: FunctionComponent<PanelProps> = ({
             </Label>
             <Content>
               <ImageContainer>
-                {dest.image && <img src={dest.image} alt={dest.name} />}
+                {dest.image && (
+                  <LazyLoad offset={100} overflow once>
+                    <img src={dest.image} alt={dest.name} />
+                  </LazyLoad>
+                )}
               </ImageContainer>
               <p>{dest.description}</p>
             </Content>
