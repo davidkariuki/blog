@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react"
+import React, { FC } from "react"
 import Link from "next/link"
 import { Container, Content, Title, Accent } from "./styles"
 
-export const Landing: FunctionComponent = () => {
+export const Landing: FC = () => {
   return (
     <>
       <Container>

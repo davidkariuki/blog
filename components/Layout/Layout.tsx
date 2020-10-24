@@ -1,10 +1,10 @@
-import React, { FunctionComponent, useEffect } from "react"
+import React, { FC, useEffect } from "react"
 import { Container, Main } from "./styles"
 import { Header } from "../Header"
 import { Footer } from "../Footer"
 import { gaInit, gaTrackPageView } from "../../lib/ga"
 
-export const Layout: FunctionComponent = ({ children }) => {
+export const Layout: FC = ({ children }) => {
   useEffect(() => {
     gaInit()
     gaTrackPageView()

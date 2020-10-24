@@ -1,9 +1,9 @@
 import { NextSeo } from "next-seo"
-import { FunctionComponent } from "react"
+import { FC } from "react"
 import { Layout } from "../components/Layout"
 import { CustomError } from "../components/CustomError"
 
-const Custom404: FunctionComponent = () => {
+const Custom404: FC = () => {
   return (
     <Layout>
       <NextSeo title="404 nothing to see here." />

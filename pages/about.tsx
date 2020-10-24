@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from "react"
+import React, { FC } from "react"
 import { NextSeo } from "next-seo"
 import Link from "next/link"
 import { Layout } from "../components/Layout"
 import { Article } from "../styles/shared"
 
-const About: FunctionComponent = () => {
+const About: FC = () => {
   return (
     <Layout>
       <NextSeo title="about" canonical="https://davidkariuki.com/about" />

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react"
+import React, { FC, useState } from "react"
 import Link from "next/link"
 import type { PostMetadata } from "../../shared/types"
 import { FormattedDate } from "../FormattedDate"
@@ -19,10 +19,7 @@ interface PostsListProps {
   categories: string[]
 }
 
-export const PostsList: FunctionComponent<PostsListProps> = ({
-  posts,
-  categories,
-}) => {
+export const PostsList: FC<PostsListProps> = ({ posts, categories }) => {
   const [postData, setPostData] = useState<PostMetadata[]>(posts)
 
   const filterPosts = (category: string): PostMetadata[] => {

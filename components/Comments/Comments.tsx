@@ -1,6 +1,6 @@
-import React, { FunctionComponent, useEffect } from "react"
+import React, { FC, useEffect } from "react"
 
-export const Comments: FunctionComponent = () => {
+export const Comments: FC = () => {
   useEffect(() => {
     const script = document.createElement("script")
     const anchor = document.getElementById("comments")

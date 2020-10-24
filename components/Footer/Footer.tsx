@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react"
+import React, { FC } from "react"
 import { Container, Copyright } from "./styles"
 import { GithubSvg, TwitterSvg, LinkedInSvg } from "../../styles/shared"
 
-export const Footer: FunctionComponent = () => {
+export const Footer: FC = () => {
   const year = new Date().getFullYear()
 
   return (

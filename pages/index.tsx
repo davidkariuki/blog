@@ -1,9 +1,9 @@
 import { NextSeo } from "next-seo"
-import { FunctionComponent } from "react"
+import { FC } from "react"
 import { Layout } from "../components/Layout"
 import { Landing } from "../components/Landing"
 
-const Home: FunctionComponent = () => {
+const Home: FC = () => {
   return (
     <Layout>
       <NextSeo

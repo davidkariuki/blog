@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react"
+import React, { FC } from "react"
 import { PostDate } from "./styles"
 
 interface DateProps {
@@ -6,10 +6,7 @@ interface DateProps {
   textCenter?: boolean
 }
 
-export const FormattedDate: FunctionComponent<DateProps> = ({
-  dateString,
-  textCenter,
-}) => {
+export const FormattedDate: FC<DateProps> = ({ dateString, textCenter }) => {
   const date = new Date(dateString)
   const formattedDateString = new Intl.DateTimeFormat("en-GB", {
     year: "numeric",
