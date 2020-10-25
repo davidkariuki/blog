@@ -1,4 +1,4 @@
-import React, { FC, useRef, useEffect } from "react"
+import { FC, useRef, useEffect } from "react"
 import { Content, Accordion, Label, Input, ImageContainer } from "./styles"
 import { Destination } from "../../shared/types"
 import { FormattedDate } from "../FormattedDate"

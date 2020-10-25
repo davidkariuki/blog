@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import { FC } from "react"
 import { Container, Code, Message } from "./styles"
 
 interface CustomErrorProps {

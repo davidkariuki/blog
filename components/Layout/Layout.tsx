@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react"
+import { FC, useEffect } from "react"
 import { Container, Main } from "./styles"
 import { Header } from "../Header"
 import { Footer } from "../Footer"

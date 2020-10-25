@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import { FC } from "react"
 import { Marker } from "react-map-gl"
 import { Destination } from "../../shared/types"
 import { HomeSvg, PinSvg } from "./styles"

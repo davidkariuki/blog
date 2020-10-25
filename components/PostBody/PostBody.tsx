@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import { FC } from "react"
 import { PostTitle } from "./styles"
 import { Article } from "../../styles/shared"
 import { FormattedDate } from "../FormattedDate"

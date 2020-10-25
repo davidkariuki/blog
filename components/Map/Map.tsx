@@ -1,4 +1,4 @@
-import React, { useState, FC, useEffect } from "react"
+import { useState, FC, useEffect } from "react"
 import ReactMapGL, { FlyToInterpolator } from "react-map-gl"
 import { Places } from "../Places"
 import { Destination } from "../../shared/types"

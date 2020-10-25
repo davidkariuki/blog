@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import { FC } from "react"
 import { NextSeo } from "next-seo"
 import { Layout } from "../components/Layout"
 import { PostBody } from "../components/PostBody"

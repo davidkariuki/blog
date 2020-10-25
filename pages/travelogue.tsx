@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react"
+import { FC, useState } from "react"
 import { NextSeo } from "next-seo"
 import { GetStaticProps } from "next"
 import dynamic from "next/dynamic"

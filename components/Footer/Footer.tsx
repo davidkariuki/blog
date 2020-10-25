@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import { FC } from "react"
 import { Container, Copyright } from "./styles"
 import { GithubSvg, TwitterSvg, LinkedInSvg } from "../../styles/shared"
 

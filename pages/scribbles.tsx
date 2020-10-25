@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import { FC } from "react"
 import { NextSeo } from "next-seo"
 import { GetStaticProps } from "next"
 import { getSortedPostsData } from "../lib/posts"

@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import { FC } from "react"
 import { NavbarContainer, NavbarLink } from "./styles"
 import Link from "next/link"
 

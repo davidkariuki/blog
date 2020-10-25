@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react"
+import { FC, useState } from "react"
 import Link from "next/link"
 import type { PostMetadata } from "../../shared/types"
 import { FormattedDate } from "../FormattedDate"
