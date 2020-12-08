@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react"
+import { FC } from "react"
 import { NextSeo } from "next-seo"
 import { GetStaticProps } from "next"
 import { getSortedPostsData } from "../lib/posts"
@@ -10,7 +10,7 @@ interface ScribblesProps {
   allPostsData: PostMetadata[]
 }
 
-const Scribbles: FunctionComponent<ScribblesProps> = ({ allPostsData }) => {
+const Scribbles: FC<ScribblesProps> = ({ allPostsData }) => {
   const categories = getCategories(allPostsData)
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState, FunctionComponent, useEffect } from "react"
+import { useState, FC, useEffect } from "react"
 import ReactMapGL, { FlyToInterpolator } from "react-map-gl"
 import { Places } from "../Places"
 import { Destination } from "../../shared/types"
@@ -21,7 +21,7 @@ interface MapProps {
   destinationChanged(d: Destination): void
 }
 
-export const Map: FunctionComponent<MapProps> = ({
+export const Map: FC<MapProps> = ({
   markers,
   selectedDestination,
   destinationChanged,

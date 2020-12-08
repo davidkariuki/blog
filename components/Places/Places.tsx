@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react"
+import { FC } from "react"
 import { Marker } from "react-map-gl"
 import { Destination } from "../../shared/types"
 import { HomeSvg, PinSvg } from "./styles"
@@ -8,7 +8,7 @@ export interface PlacesProps {
   onClick(place: Destination): void
 }
 
-export const Places: FunctionComponent<PlacesProps> = ({ data, onClick }) => {
+export const Places: FC<PlacesProps> = ({ data, onClick }) => {
   return (
     <>
       {data.map((place: Destination) => {

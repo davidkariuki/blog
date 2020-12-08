@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react"
+import { FC } from "react"
 import { Tag } from "./styles"
 
 interface TagProps {
@@ -7,11 +7,7 @@ interface TagProps {
   onClicked(label: string): any
 }
 
-export const Category: FunctionComponent<TagProps> = ({
-  label,
-  dark,
-  onClicked,
-}) => {
+export const Category: FC<TagProps> = ({ label, dark, onClicked }) => {
   return (
     <>
       <Tag onClick={() => onClicked(label)} dark={dark} spaced={true}>

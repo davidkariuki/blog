@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react"
+import { FC, useState } from "react"
 import { NextSeo } from "next-seo"
 import { GetStaticProps } from "next"
 import dynamic from "next/dynamic"
@@ -29,7 +29,7 @@ interface DestinationsProps {
   data: Destination[]
 }
 
-const Travelogue: FunctionComponent<DestinationsProps> = ({ data }) => {
+const Travelogue: FC<DestinationsProps> = ({ data }) => {
   const [selectedDestination, setSelectedDestination] = useState(data[0])
 
   return (

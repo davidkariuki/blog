@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react"
+import { FC } from "react"
 import { NextSeo } from "next-seo"
 import { Layout } from "../components/Layout"
 import { PostBody } from "../components/PostBody"
@@ -12,7 +12,7 @@ interface Props {
   }
 }
 
-const Posts: FunctionComponent<Props> = ({ children, frontMatter }) => {
+const Posts: FC<Props> = ({ children, frontMatter }) => {
   return (
     <Layout>
       <NextSeo

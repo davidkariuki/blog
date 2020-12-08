@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useRef, useEffect } from "react"
+import { FC, useRef, useEffect } from "react"
 import { Content, Accordion, Label, Input, ImageContainer } from "./styles"
 import { Destination } from "../../shared/types"
 import { FormattedDate } from "../FormattedDate"
@@ -10,7 +10,7 @@ interface PanelProps {
   destinationChanged(d: Destination): void
 }
 
-export const MapPanel: FunctionComponent<PanelProps> = ({
+export const MapPanel: FC<PanelProps> = ({
   destinations,
   selectedDestination,
   destinationChanged,

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react"
+import { FC } from "react"
 import { PostTitle } from "./styles"
 import { Article } from "../../styles/shared"
 import { FormattedDate } from "../FormattedDate"
@@ -12,10 +12,7 @@ interface PostProps {
   }
 }
 
-export const PostBody: FunctionComponent<PostProps> = ({
-  children,
-  frontMatter,
-}) => {
+export const PostBody: FC<PostProps> = ({ children, frontMatter }) => {
   return (
     <>
       <PostTitle>{frontMatter.title}</PostTitle>

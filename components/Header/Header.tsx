@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react"
+import { FC } from "react"
 import { NavbarContainer, NavbarLink } from "./styles"
 import Link from "next/link"
 
-export const Header: FunctionComponent = () => {
+export const Header: FC = () => {
   return (
     <NavbarContainer>
       <Link href="/">

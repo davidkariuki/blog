@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react"
+import { FC } from "react"
 import { Container, Code, Message } from "./styles"
 
 interface CustomErrorProps {
@@ -6,10 +6,7 @@ interface CustomErrorProps {
   message: string
 }
 
-export const CustomError: FunctionComponent<CustomErrorProps> = ({
-  code,
-  message,
-}) => {
+export const CustomError: FC<CustomErrorProps> = ({ code, message }) => {
   return (
     <>
       <Container>
