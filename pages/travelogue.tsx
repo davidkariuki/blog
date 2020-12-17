@@ -2,17 +2,24 @@ import { FC, useState } from "react"
 import { NextSeo } from "next-seo"
 import { GetStaticProps } from "next"
 import dynamic from "next/dynamic"
+
 import { Header } from "../components/Header"
-import { MapLayout } from "../components/MapLayout"
-import { MapPanel } from "../components/MapPanel"
 import { getDestinations } from "../lib/destinations"
 import { Destination } from "../shared/types"
 
+const MapLayout = dynamic<any>(
+  () => import("../components/MapLayout").then((mod) => mod.MapLayout),
+  { ssr: false }
+)
+
+const MapPanel = dynamic<any>(
+  () => import("../components/MapPanel").then((mod) => mod.MapPanel),
+  { ssr: false }
+)
+
 const Map = dynamic<any>(
-  (() => import("../components/Map").then((mod) => mod.Map)) as any,
-  {
-    ssr: false,
-  }
+  () => import("../components/Map").then((mod) => mod.Map),
+  { ssr: false }
 )
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -30,7 +37,7 @@ interface DestinationsProps {
 }
 
 const Travelogue: FC<DestinationsProps> = ({ data }) => {
-  const [selectedDestination, setSelectedDestination] = useState(data[0])
+  const [selectedDestination, setSelectedDestination] = useState<Destination>()
 
   return (
     <>

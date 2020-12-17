@@ -18,10 +18,12 @@ export const MapPanel: FC<PanelProps> = ({
   const itemRefs = useRef<HTMLLabelElement[]>([])
 
   useEffect(() => {
-    const index = destinations.indexOf(selectedDestination)
-    const ref = itemRefs.current[index]
+    if (selectedDestination) {
+      const index = destinations.indexOf(selectedDestination)
+      const ref = itemRefs.current[index]
 
-    if (ref) ref.scrollIntoView({ behavior: "smooth" })
+      if (ref) ref.scrollIntoView({ behavior: "smooth" })
+    }
   }, [selectedDestination])
 
   return (
@@ -35,7 +37,7 @@ export const MapPanel: FC<PanelProps> = ({
               value={dest.name}
               id={`section-${dest.id}`}
               onChange={() => {}}
-              checked={dest.id === selectedDestination.id}
+              checked={dest.id === selectedDestination?.id ?? false}
             />
             <Label
               htmlFor={`section-${dest.id}`}
@@ -48,7 +50,7 @@ export const MapPanel: FC<PanelProps> = ({
               <ImageContainer>
                 {dest.image && (
                   <LazyLoad offset={100} overflow once>
-                    <img src={dest.image} alt={dest.name} />
+                    <img width={310} src={dest.image} alt={dest.name} />
                   </LazyLoad>
                 )}
               </ImageContainer>
