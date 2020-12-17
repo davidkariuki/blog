@@ -16,6 +16,9 @@ module.exports = withMdxEnhanced({
       return config
     },
 
+    images: {
+      domains: ["images.ctfassets.net"],
+    },
     async redirects() {
       return [
         {
