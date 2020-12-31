@@ -1,0 +1,70 @@
+---
+title: Testing Next.js with Jest and Enzyme
+description: Setting up unit testing for a Next.js + TypeScript project
+date: Dec 31, 2020 16:29:29
+category: Next.js
+---
+Over the last few months, [Next.js](https://nextjs.org) has become my default framework for pet projects. I love that it integrates painlessly with TypeScript, and I found that setting up a testing framework was just as effortless.
+
+## Getting started
+
+Let's first create a Next.js app.
+
+```bash
+yarn create next-app next-typescript-enzyme-jest-example
+```
+Add development dependencies for the TypeScript conversion. With [ts-node](https://github.com/TypeStrong/ts-node) we can also write our config files in TypeScript. 
+
+```bash
+yarn add --dev typescript ts-node @types/react @types/node
+```
+
+Finally, we add a `tsconfig.json` file, which automatically gets populated when we start the Next.js server.
+
+```bash
+touch tsconfig.json
+```
+Okay! The project is ready to go, and all that's left is to convert any lingering JavaScript files by following [these instructions](https://nextjs.org/docs/basic-features/typescript).
+
+## Adding Jest & Enzyme
+
+I chose [Jest](https://jestjs.io/) as my front-end testing framework because of familiarity (prior experience with [RSpec](https://rspec.info/)), and [Enzyme](https://enzymejs.github.io/enzyme/) for no particular reason whatsoever.
+
+```bash
+yarn add --dev jest ts-jest enzyme @wojtekmaj/enzyme-adapter-react-17 @types/jest @types/enzyme
+```
+I chose [ts-jest](https://kulshekhar.github.io/ts-jest/) over [@babel/preset-typescript](https://babeljs.io/docs/en/babel-preset-typescript) because [I was told it has better type-checking](https://kulshekhar.github.io/ts-jest/docs/babel7-or-ts/). Also, [@wojtekmaj's](https://github.com/wojtekmaj) fork of enzyme adapter is only a [temporary stopgap](https://github.com/enzymejs/enzyme/issues/2429#issuecomment-679265564) until the official adapter supports React 17.
+
+Now that we have installed the testing dependencies, we'll create a couple of config files for Jest:
+
+```typescript
+// jest.config.ts
+import type { Config } from "@jest/types"
+
+const config: Config.InitialOptions = {
+  verbose: true,
+  preset: "ts-jest",
+  testEnvironment: "node",
+}
+
+export default config
+```
+and Enzyme:
+
+```typescript
+// enzyme.config.ts
+import { configure } from "enzyme"
+import Adapter from "@wojtekmaj/enzyme-adapter-react-17"
+
+configure({ adapter: new Adapter() })
+```
+That's it! We are now ready to write unit and integration tests. Below is how I have my scripts set up:
+
+```json
+  "scripts": {
+    ...
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage"
+  },
+```

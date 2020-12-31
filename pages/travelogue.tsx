@@ -44,6 +44,7 @@ const Travelogue: FC<DestinationsProps> = ({ data }) => {
       <NextSeo
         title="travelogue"
         canonical="https://davidkariuki.com/travelogue"
+        description="A summary of places I've visited"
       />
       <Header></Header>
       <MapLayout>
