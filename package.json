@@ -11,12 +11,14 @@
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.5.0",
+    "autoprefixer": "^10.2.3",
     "contentful": "^8.1.7",
     "gray-matter": "^4.0.2",
     "next": "^10.0.5",
     "next-mdx-enhanced": "^5.0.0",
     "next-react-svg": "1.1.2",
     "next-seo": "^4.15.1",
+    "postcss": "^8.2.4",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -25,7 +27,8 @@
     "react-lazyload": "^3.1.0",
     "react-map-gl": "^6.0.3",
     "remark-external-links": "^8.0.0",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
