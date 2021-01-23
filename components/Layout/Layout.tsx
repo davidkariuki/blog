@@ -1,5 +1,4 @@
 import { FC, useEffect } from "react"
-import { Container, Main } from "./styles"
 import { Header } from "../Header"
 import { Footer } from "../Footer"
 import { gaInit, gaTrackPageView } from "../../lib/ga"
@@ -11,10 +10,10 @@ export const Layout: FC = ({ children }) => {
   }, [])
 
   return (
-    <Container>
+    <div className="flex flex-col max-w-screen-lg mx-auto">
       <Header />
-      <Main>{children}</Main>
+      <div className="flex flex-grow">{children}</div>
       <Footer />
-    </Container>
+    </div>
   )
 }
