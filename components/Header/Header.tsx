@@ -3,20 +3,36 @@ import { NavbarContainer, NavbarLink } from "./styles"
 import Link from "next/link"
 
 export const Header: FC = () => {
+  const links = [
+    {
+      href: "/",
+      text: "dk",
+    },
+    {
+      href: "/scribbles",
+      text: "scribbles",
+    },
+    {
+      href: "/about",
+      text: "about",
+    },
+    {
+      href: "/travelogue",
+      text: "travelogue",
+    },
+  ]
+
   return (
-    <NavbarContainer>
-      <Link href="/">
-        <NavbarLink brand>dk</NavbarLink>
-      </Link>
-      <Link href="/scribbles">
-        <NavbarLink>scribbles</NavbarLink>
-      </Link>
-      <Link href="/about">
-        <NavbarLink>about</NavbarLink>
-      </Link>
-      <Link href="/travelogue">
-        <NavbarLink>travelogue</NavbarLink>
-      </Link>
-    </NavbarContainer>
+    <div className="flex flex-none p-8">
+      {links.map(({ href, text }) => {
+        return (
+          <Link key={text} href={href}>
+            <div className="mr-8 last:mr-0 first:flex-grow hover:text-yellow-600 cursor-pointer font-bold">
+              {text}
+            </div>
+          </Link>
+        )
+      })}
+    </div>
   )
 }

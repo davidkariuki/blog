@@ -5,7 +5,10 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      flexGrow: ["first"],
+      margin: ["last"],
+    },
   },
   plugins: [],
 }
