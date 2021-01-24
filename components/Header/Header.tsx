@@ -28,7 +28,7 @@ export const Header: FC = () => {
         <ul className="flex flex-row">
           {links.map(({ href, text }) => {
             return (
-              <li className="pr-5">
+              <li className="pr-5" key={text}>
                 <Link href={href}>
                   <div className="mr-8 last:mr-0 cursor-pointer font-bold">
                     {text}
