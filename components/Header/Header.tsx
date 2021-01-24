@@ -19,9 +19,9 @@ export const Header: FC = () => {
 
   return (
     <div className="container p-8">
-      <nav className="flex justify-between">
+      <nav className="flex justify-between align-middle">
         <Link href="/">
-          <div className="mr-8 text-yellow-600 cursor-pointer font-bold">
+          <div className="mr-8 text-yellow-600 text-2xl cursor-pointer font-bold">
             dk
           </div>
         </Link>
@@ -30,7 +30,7 @@ export const Header: FC = () => {
             return (
               <li className="pr-5" key={text}>
                 <Link href={href}>
-                  <div className="mr-8 last:mr-0 cursor-pointer font-bold">
+                  <div className="inline-block align-middle mr-8 last:mr-0 cursor-pointer font-bold">
                     {text}
                   </div>
                 </Link>
