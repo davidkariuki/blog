@@ -8,7 +8,7 @@ export const Footer: FC = () => {
 
   return (
     <div className="w-full border-t dark:bg-gray-900">
-      <div className="container flex flex-row p-8">
+      <div className="container flex flex-row p-8 mx-auto">
         <div className="mr-auto text-sm text-gray-900 dark:text-gray-50">
           © David Kariuki {year}
         </div>
