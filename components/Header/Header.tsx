@@ -1,8 +1,12 @@
-import { FC, useState } from "react"
+import { FC, useContext, useState } from "react"
 import Link from "next/link"
+import MoonSvg from "../../public/images/moon.svg"
+import SunSvg from "../../public/images/sun.svg"
+import ThemeContext from "../../contexts/ThemeContext"
 
 export const Header: FC = () => {
   const [isActive, setIsActive] = useState(true)
+  const { theme, saveTheme } = useContext(ThemeContext)
 
   const links = [
     {
@@ -74,6 +78,20 @@ export const Header: FC = () => {
               </li>
             )
           })}
+          <li className="my-2 md:my-0 md:pr-5">
+            {theme === "dark" && (
+              <MoonSvg
+                className="cursor-pointer"
+                onClick={() => saveTheme("light")}
+              />
+            )}
+            {theme === "light" && (
+              <SunSvg
+                className="cursor-pointer"
+                onClick={() => saveTheme("dark")}
+              />
+            )}
+          </li>
         </ul>
       </nav>
     </div>
