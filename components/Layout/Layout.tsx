@@ -10,7 +10,7 @@ export const Layout: FC = ({ children }) => {
   }, [])
 
   return (
-    <div className="flex flex-col max-w-screen-lg mx-auto">
+    <div className="flex flex-col items-center mx-auto">
       <Header />
       <div className="flex flex-grow">{children}</div>
       <Footer />
