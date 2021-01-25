@@ -44,9 +44,7 @@ export const Header: FC = () => {
             width="18"
             height="18"
             viewBox="0 0 18 18"
-            className={`${
-              isActive ? "" : "hidden"
-            } w-5 h-5 fill-current text-gray-900 dark:text-white`}
+            className={`${isActive ? "" : "hidden"} w-5 h-5 fill-current`}
           >
             <path d="M2 13.5h14V12H2v1.5zm0-4h14V8H2v1.5zM2 4v1.5h14V4H2z" />
           </svg>
@@ -55,9 +53,7 @@ export const Header: FC = () => {
             width="18"
             height="18"
             viewBox="0 0 18 18"
-            className={`${
-              isActive ? "hidden" : ""
-            } w-5 h-5 fill-current text-gray-900 dark:text-white`}
+            className={`${isActive ? "hidden" : ""} w-5 h-5 fill-current`}
           >
             <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />
           </svg>
@@ -78,16 +74,16 @@ export const Header: FC = () => {
               </li>
             )
           })}
-          <li className="my-2 md:my-0 md:pr-5">
+          <li className="my-2 text-center md:my-0 md:pr-5">
             {theme === "dark" && (
               <MoonSvg
-                className="cursor-pointer"
+                className="inline-block cursor-pointer"
                 onClick={() => saveTheme("light")}
               />
             )}
             {theme === "light" && (
               <SunSvg
-                className="cursor-pointer"
+                className="inline-block cursor-pointer"
                 onClick={() => saveTheme("dark")}
               />
             )}
