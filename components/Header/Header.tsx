@@ -37,7 +37,7 @@ export const Header: FC = () => {
         </Link>
         <div
           onClick={() => setIsActive(!isActive)}
-          className="align-middle md:hidden"
+          className="align-middle cursor-pointer md:hidden"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -61,20 +61,20 @@ export const Header: FC = () => {
         <ul
           className={`${
             isActive ? "hidden" : ""
-          } md:flex md:flex-row md:w-auto w-full border-t border-b md:border-b-0 md:border-t-0`}
+          } md:flex md:flex-row md:w-auto w-full border-gray-700 border-b md:border-b-0 md:border-t-0`}
         >
           {links.map(({ href, text }) => {
             return (
               <li className="my-2 md:my-0 md:pr-5" key={text}>
                 <Link href={href}>
-                  <div className="mr-8 font-bold text-center align-middle border-b-2 border-transparent cursor-pointer last:mr-0 hover:border-yellow-600">
+                  <div className="mr-8 font-bold border-b-2 border-transparent cursor-pointer last:mr-0 hover:border-yellow-600">
                     {text}
                   </div>
                 </Link>
               </li>
             )
           })}
-          <li className="my-2 text-center md:my-0 md:pr-5">
+          <li className="my-2 md:my-0 md:pr-5">
             {theme === "dark" && (
               <MoonSvg
                 className="inline-block cursor-pointer"

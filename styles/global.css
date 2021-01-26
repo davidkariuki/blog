@@ -19,23 +19,20 @@
 }
 
 html body {
-  padding: 0;
-  margin: 0;
-  font-size: 1rem;
+  @apply p-0 m-0 text-base;
   font-family: "Quicksand", sans-serif;
 }
 
 body {
-  height: 100vh;
+  @apply min-h-screen;
 }
 
 * {
-  box-sizing: border-box;
+  @apply box-border;
 }
 
 a {
-  color: var(--accent-color);
-  text-decoration: none;
+  @apply text-yellow-700 dark:text-yellow-600;
 }
 
 img {
