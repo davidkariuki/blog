@@ -1,12 +1,12 @@
 import { createContext, FC, useEffect, useState } from "react"
 
 const ThemeContext = createContext({
-  theme: "dark",
+  theme: "light",
   saveTheme: (_theme: string) => {},
 })
 
 export const ThemeStore: FC = ({ children }) => {
-  const [theme, setTheme] = useState<string>("dark")
+  const [theme, setTheme] = useState<string>("light")
 
   const saveTheme = (mode: string) => {
     localStorage.setItem("theme", mode)
@@ -14,10 +14,12 @@ export const ThemeStore: FC = ({ children }) => {
   }
 
   useEffect(() => {
+    const savedTheme = localStorage.getItem("theme")
+
     window.matchMedia("prefers-color-scheme: dark").matches && !theme
       ? saveTheme("dark")
-      : theme
-      ? saveTheme(theme)
+      : savedTheme
+      ? saveTheme(savedTheme)
       : saveTheme("light")
   }, [])
 

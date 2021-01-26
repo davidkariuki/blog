@@ -7,7 +7,7 @@ export const Footer: FC = () => {
   const year = new Date().getFullYear()
 
   return (
-    <div className="w-full border-t">
+    <div className="w-full border-t border-gray-700">
       <div className="container flex flex-row p-8 mx-auto">
         <div className="mr-auto text-sm">© David Kariuki {year}</div>
         <a href="https://github.com/davidkariuki" target="_blank">

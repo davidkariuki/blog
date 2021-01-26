@@ -6,7 +6,7 @@ export const Landing: FC = () => {
     <div className="container flex flex-col justify-center p-8">
       <p className="text-4xl font-extrabold mb-4">
         Hello, I'm{" "}
-        <span className="text-yellow-600 dark:text-yellow-700">David</span>.
+        <span className="text-yellow-700 dark:text-yellow-600">David</span>.
       </p>
       <p className="mb-4">
         I like to code, travel and dance, and this is where I write down my
