@@ -11,13 +11,13 @@ export const Footer: FC = () => {
       <div className="container flex flex-row p-8 mx-auto">
         <div className="mr-auto text-sm">© David Kariuki {year}</div>
         <a href="https://github.com/davidkariuki" target="_blank">
-          <GithubSvg className="w-6 h-6 fill-current text-icicle dark:text-gray-50 hover:text-yellow-600 dark:hover:text-yellow-600" />
+          <GithubSvg className="w-6 h-6 fill-current text-dark dark:text-gray-50 hover:text-yellow-600 dark:hover:text-yellow-600" />
         </a>
         <a href="https://twitter.com/davidkariuki" target="_blank">
-          <TwitterSvg className="ml-4 w-6 h-6 fill-current text-icicle dark:text-gray-50 hover:text-yellow-600 dark:hover:text-yellow-600" />
+          <TwitterSvg className="ml-4 w-6 h-6 fill-current text-dark dark:text-gray-50 hover:text-yellow-600 dark:hover:text-yellow-600" />
         </a>
         <a href="https://www.linkedin.com/in/dkariuki/" target="_blank">
-          <LinkedInSvg className="w-6 h-6 ml-4 fill-current text-icicle dark:text-gray-50 hover:text-yellow-600 dark:hover:text-yellow-600" />
+          <LinkedInSvg className="w-6 h-6 ml-4 fill-current text-dark dark:text-gray-50 hover:text-yellow-600 dark:hover:text-yellow-600" />
         </a>
       </div>
     </div>
