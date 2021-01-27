@@ -8,15 +8,15 @@ const About: FC = () => {
   return (
     <Layout>
       <NextSeo title="about" canonical="https://davidkariuki.com/about" />
-      <Article>
-        <p>
+      <div className="container flex flex-col p-8">
+        <p className="mb-4">
           I am a software engineer currently living in London, UK. While I am
           Kenyan by nationality, all my early years were spent in Zambia. At the
           age of 17, I left Zambia and lived in my home country for 3 years
           before shipping off to the US for university. You could say my life
           has been somewhat nomadic.
         </p>
-        <p>
+        <p className="mb-4">
           Perhaps because I have primarily lived in foreign countries, my
           wanderlust is pretty intense. I keep a
           <Link href="/travelogue">
@@ -25,14 +25,14 @@ const About: FC = () => {
           of all the places I have visited, which keeps motivating me to smother
           the world map with orange pins.
         </p>
-        <p>
+        <p className="mb-4">
           The first time I encountered a computer was in 12th grade. Even though
           we were only taught simple document processing, it was all fascinating
           to me. My tech career began shortly after graduation. After learning
           how to build PCs and administer Microsoft networks, I officially
           became a bonafide IT guy.
         </p>
-        <p>
+        <p className="mb-4">
           However, my interests in hardware quickly turned to software when I
           started university. I was particularly interested in applications of
           software engineering in medicine, but I ultimately sold out and became
@@ -43,7 +43,7 @@ const About: FC = () => {
           </Link>
           page.
         </p>
-      </Article>
+      </div>
     </Layout>
   )
 }
