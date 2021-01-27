@@ -14,7 +14,7 @@ export const Layout: FC = ({ children }) => {
 
   return (
     <div className={theme}>
-      <div className="flex flex-col items-center min-h-screen mx-auto bg-gray-50 dark:bg-icicle text-icicle dark:text-gray-50">
+      <div className="flex flex-col items-center min-h-screen mx-auto bg-gray-50 dark:bg-dark text-dark dark:text-gray-50">
         <Header />
         <div className="flex flex-grow">{children}</div>
         <Footer />

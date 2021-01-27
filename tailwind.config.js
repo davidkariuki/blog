@@ -1,10 +1,10 @@
 module.exports = {
-  purge: ["./pages/**/*.js", "./components/**/*.js"],
+  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class", // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
-        icicle: {
+        dark: {
           DEFAULT: "#1c1c1e",
         },
       },
