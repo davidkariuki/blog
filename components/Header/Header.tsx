@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react"
+import { FC, useState } from "react"
 import Link from "next/link"
 import MoonSvg from "../../public/images/moon.svg"
 import SunSvg from "../../public/images/sun.svg"
@@ -6,10 +6,7 @@ import { useTheme } from "next-themes"
 
 export const Header: FC = () => {
   const [isActive, setIsActive] = useState(true)
-  const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
-
-  useEffect(() => setMounted(true), [])
 
   const links = [
     {
