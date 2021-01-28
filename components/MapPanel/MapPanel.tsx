@@ -1,5 +1,4 @@
 import { FC, useRef, useEffect } from "react"
-import { Content, Accordion, Label, Input, ImageContainer } from "./styles"
 import { Destination } from "../../shared/types"
 import { FormattedDate } from "../FormattedDate"
 import LazyLoad from "react-lazyload"
@@ -27,11 +26,11 @@ export const MapPanel: FC<PanelProps> = ({
   }, [selectedDestination])
 
   return (
-    <Accordion>
+    <div>
       {destinations.map((dest, index) => {
         return (
           <div key={index} onChange={() => destinationChanged(dest)}>
-            <Input
+            <input
               type="radio"
               name="destination"
               value={dest.name}
@@ -39,26 +38,26 @@ export const MapPanel: FC<PanelProps> = ({
               onChange={() => {}}
               checked={dest.id === selectedDestination?.id ?? false}
             />
-            <Label
+            <label
               htmlFor={`section-${dest.id}`}
               ref={(el) => (itemRefs.current[index] = el as HTMLLabelElement)}
             >
               {dest.name}
               <FormattedDate dateString={dest.date} />
-            </Label>
-            <Content>
-              <ImageContainer>
+            </label>
+            <div>
+              <div>
                 {dest.image && (
                   <LazyLoad offset={100} overflow once>
                     <img width={310} src={dest.image} alt={dest.name} />
                   </LazyLoad>
                 )}
-              </ImageContainer>
+              </div>
               <p>{dest.description}</p>
-            </Content>
+            </div>
           </div>
         )
       })}
-    </Accordion>
+    </div>
   )
 }

@@ -1,7 +1,8 @@
 import { FC } from "react"
 import { Marker } from "react-map-gl"
 import { Destination } from "../../shared/types"
-import { HomeSvg, PinSvg } from "./styles"
+import HomeSvg from "../../public/images/home.svg"
+import PinSvg from "../../public/images/map-pin.svg"
 
 export interface PlacesProps {
   data: Destination[]

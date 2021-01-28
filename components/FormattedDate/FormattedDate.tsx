@@ -1,12 +1,11 @@
 import { FC } from "react"
-import { PostDate } from "./styles"
 
 interface DateProps {
   dateString: string
-  textCenter?: boolean
+  className?: string
 }
 
-export const FormattedDate: FC<DateProps> = ({ dateString, textCenter }) => {
+export const FormattedDate: FC<DateProps> = ({ dateString, className }) => {
   const date = new Date(dateString)
   const formattedDateString = new Intl.DateTimeFormat("en-GB", {
     year: "numeric",
@@ -14,5 +13,5 @@ export const FormattedDate: FC<DateProps> = ({ dateString, textCenter }) => {
     day: "2-digit",
   }).format(date)
 
-  return <PostDate textCenter={textCenter}>{formattedDateString}</PostDate>
+  return <div className={className}>{formattedDateString}</div>
 }

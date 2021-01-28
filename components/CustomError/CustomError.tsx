@@ -1,5 +1,4 @@
 import { FC } from "react"
-import { Container, Code, Message } from "./styles"
 
 interface CustomErrorProps {
   code: number
@@ -9,10 +8,10 @@ interface CustomErrorProps {
 export const CustomError: FC<CustomErrorProps> = ({ code, message }) => {
   return (
     <>
-      <Container>
-        <Code>{code}</Code>
-        <Message>{message}</Message>
-      </Container>
+      <div className="container">
+        <div className="mr-4 pr-4 border-r border-gray-200">{code}</div>
+        <div>{message}</div>
+      </div>
     </>
   )
 }

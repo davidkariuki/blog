@@ -1,18 +1,14 @@
 import { FC } from "react"
-import { Tag } from "./styles"
 
 interface TagProps {
   label: string
-  dark?: boolean
-  onClicked(label: string): any
+  onClick(label: string): void
 }
 
-export const Category: FC<TagProps> = ({ label, dark, onClicked }) => {
+export const Category: FC<TagProps> = ({ label, onClick }) => {
   return (
     <>
-      <Tag onClick={() => onClicked(label)} dark={dark} spaced={true}>
-        {label}
-      </Tag>
+      <div onClick={() => onClick(label)}>{label}</div>
     </>
   )
 }
