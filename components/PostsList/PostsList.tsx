@@ -4,15 +4,6 @@ import type { PostMetadata } from "../../shared/types"
 import { FormattedDate } from "../FormattedDate"
 import { Category } from "../Category"
 import { Tag } from "../Category/styles"
-import {
-  Content,
-  Card,
-  CardContent,
-  DateTag,
-  Description,
-  PostTitle,
-  TagsList,
-} from "./styles"
 
 interface PostsListProps {
   posts: PostMetadata[]
@@ -31,8 +22,8 @@ export const PostsList: FC<PostsListProps> = ({ posts, categories }) => {
   }
 
   return (
-    <Content>
-      <TagsList>
+    <div className="container flex flex-col p-8">
+      <div className="flex flex-row flex-wrap content-center">
         {categories.map((category, index) => {
           return (
             <Category
@@ -43,23 +34,23 @@ export const PostsList: FC<PostsListProps> = ({ posts, categories }) => {
             />
           )
         })}
-      </TagsList>
+      </div>
       {postData.map(({ id, title, date, description, category }) => {
         return (
           <Link key={id} href="/scribbles/[id]" as={`/scribbles/${id}`}>
-            <Card>
-              <CardContent>
-                <PostTitle>{title}</PostTitle>
-                <Description>{description}</Description>
-              </CardContent>
-              <DateTag>
+            <div>
+              <div>
+                <h3>{title}</h3>
+                <div>{description}</div>
+              </div>
+              <div>
                 <FormattedDate dateString={date} />
                 <Tag>{category}</Tag>
-              </DateTag>
-            </Card>
+              </div>
+            </div>
           </Link>
         )
       })}
-    </Content>
+    </div>
   )
 }
