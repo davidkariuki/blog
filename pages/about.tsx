@@ -2,7 +2,6 @@ import { FC } from "react"
 import { NextSeo } from "next-seo"
 import Link from "next/link"
 import { Layout } from "../components/Layout"
-import { Article } from "../styles/shared"
 
 const About: FC = () => {
   return (
