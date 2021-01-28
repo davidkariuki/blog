@@ -1,5 +1,4 @@
 import { FC, useEffect } from "react"
-import { Main } from "./styles"
 import { gaInit, gaTrackPageView } from "../../lib/ga"
 
 export const MapLayout: FC = ({ children }) => {
@@ -8,5 +7,5 @@ export const MapLayout: FC = ({ children }) => {
     gaTrackPageView()
   }, [])
 
-  return <Main>{children}</Main>
+  return <div>{children}</div>
 }

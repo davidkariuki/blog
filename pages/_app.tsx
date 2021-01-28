@@ -5,11 +5,11 @@ import "mapbox-gl/dist/mapbox-gl.css"
 
 import { AppProps } from "next/app"
 import { DefaultSeo } from "next-seo"
-import { ThemeStore } from "../contexts/ThemeContext"
+import { ThemeProvider } from "next-themes"
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeStore>
+    <ThemeProvider attribute="class">
       <DefaultSeo
         canonical="https://davidkariuki.com"
         openGraph={{
@@ -35,6 +35,6 @@ export default function App({ Component, pageProps }: AppProps) {
         }}
       />
       <Component {...pageProps} />
-    </ThemeStore>
+    </ThemeProvider>
   )
 }

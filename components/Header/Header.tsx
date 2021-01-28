@@ -1,12 +1,15 @@
-import { FC, useContext, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import Link from "next/link"
 import MoonSvg from "../../public/images/moon.svg"
 import SunSvg from "../../public/images/sun.svg"
-import ThemeContext from "../../contexts/ThemeContext"
+import { useTheme } from "next-themes"
 
 export const Header: FC = () => {
   const [isActive, setIsActive] = useState(true)
-  const { theme, saveTheme } = useContext(ThemeContext)
+  const [mounted, setMounted] = useState(false)
+  const { theme, setTheme } = useTheme()
+
+  useEffect(() => setMounted(true), [])
 
   const links = [
     {
@@ -78,13 +81,13 @@ export const Header: FC = () => {
             {theme === "dark" && (
               <MoonSvg
                 className="inline-block cursor-pointer"
-                onClick={() => saveTheme("light")}
+                onClick={() => setTheme("light")}
               />
             )}
             {theme === "light" && (
               <SunSvg
                 className="inline-block cursor-pointer"
-                onClick={() => saveTheme("dark")}
+                onClick={() => setTheme("dark")}
               />
             )}
           </li>

@@ -3,7 +3,6 @@ import Link from "next/link"
 import type { PostMetadata } from "../../shared/types"
 import { FormattedDate } from "../FormattedDate"
 import { Category } from "../Category"
-import { Tag } from "../Category/styles"
 
 interface PostsListProps {
   posts: PostMetadata[]
@@ -25,14 +24,7 @@ export const PostsList: FC<PostsListProps> = ({ posts, categories }) => {
     <div className="container flex flex-col p-8">
       <div className="flex flex-row flex-wrap content-center">
         {categories.map((category, index) => {
-          return (
-            <Category
-              onClicked={tagClicked}
-              dark={true}
-              key={index}
-              label={category}
-            />
-          )
+          return <Category onClick={tagClicked} key={index} label={category} />
         })}
       </div>
       {postData.map(({ id, title, date, description, category }) => {
@@ -45,7 +37,7 @@ export const PostsList: FC<PostsListProps> = ({ posts, categories }) => {
               </div>
               <div>
                 <FormattedDate dateString={date} />
-                <Tag>{category}</Tag>
+                <div>{category}</div>
               </div>
             </div>
           </Link>
