@@ -74,7 +74,7 @@ export const Header: FC = () => {
               </li>
             )
           })}
-          <li className="my-2 md:my-0 md:pr-5">
+          <li className="my-2 md:my-0">
             {theme === "dark" && (
               <MoonSvg
                 className="inline-block cursor-pointer"

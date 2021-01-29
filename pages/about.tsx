@@ -7,7 +7,7 @@ const About: FC = () => {
   return (
     <Layout>
       <NextSeo title="about" canonical="https://davidkariuki.com/about" />
-      <div className="container flex flex-col p-8">
+      <div className="flex flex-col w-full">
         <p className="mb-4">
           I am a software engineer currently living in London, UK. While I am
           Kenyan by nationality, all my early years were spent in Zambia. At the
