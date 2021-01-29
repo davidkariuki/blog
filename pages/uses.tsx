@@ -7,12 +7,12 @@ const Uses: FC = () => {
   return (
     <Layout>
       <NextSeo title="uses" canonical="https://davidkariuki.com/uses" />
-      <div className="container flex flex-col p-8">
+      <div className="container flex flex-col">
         <div className="bg-white dark:bg-dark-l shadow rounded-lg mb-8">
           <div className="p-4">
             <h3 className="text-xl font-bold">Hardware</h3>
           </div>
-          <ul className="p-4 border-t border-gray-200">
+          <ul className="p-4 border-t border-gray-200 dark:border-gray-600">
             <li>
               <b>Desktop</b>: i7-7800X | RTX 2080 Ti running Pop!_OS. I built
               this PC many years ago and have been upgrading parts once in a
@@ -40,7 +40,7 @@ const Uses: FC = () => {
           <div className="p-4">
             <h3 className="text-xl font-bold">Essential Software</h3>
           </div>
-          <ul className="p-4 border-t border-gray-200">
+          <ul className="p-4 border-t border-gray-200 dark:border-dark-600">
             <li>
               <b>Neovim</b> + <b>tmux</b> is my bread and butter.
             </li>
