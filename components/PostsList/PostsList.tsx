@@ -32,7 +32,7 @@ export const PostsList: FC<PostsListProps> = ({ posts, categories }) => {
         {postData.map(({ id, title, date, description, category }) => {
           return (
             <Link key={id} href="/scribbles/[id]" as={`/scribbles/${id}`}>
-              <div className="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow cursor-pointer dark:border-dark-l dark:bg-dark-l">
+              <div className="transition duration-150 ease-in-out transform hover:scale-105 p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow cursor-pointer dark:border-dark-l dark:bg-dark-l">
                 <div>
                   <h3>{title}</h3>
                   <div>{description}</div>
