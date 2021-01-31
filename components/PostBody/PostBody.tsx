@@ -12,7 +12,7 @@ interface PostProps {
 
 export const PostBody: FC<PostProps> = ({ children, frontMatter }) => {
   return (
-    <div className="flex flex-col">
+    <div className="container">
       <h3 className="text-3xl text-center">{frontMatter.title}</h3>
       <FormattedDate
         text-sm
