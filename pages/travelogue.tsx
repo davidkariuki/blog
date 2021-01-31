@@ -7,11 +7,6 @@ import { Header } from "../components/Header"
 import { getDestinations } from "../lib/destinations"
 import { Destination } from "../shared/types"
 
-const MapLayout = dynamic<any>(
-  () => import("../components/MapLayout").then((mod) => mod.MapLayout),
-  { ssr: false }
-)
-
 const MapPanel = dynamic<any>(
   () => import("../components/MapPanel").then((mod) => mod.MapPanel),
   { ssr: false }
@@ -47,7 +42,7 @@ const Travelogue: FC<DestinationsProps> = ({ data }) => {
         description="A summary of places I've visited"
       />
       <Header></Header>
-      <MapLayout>
+      <div className="flex flex-grow flex-col-reverse md:flex-row h-(screen-96)">
         <MapPanel
           selectedDestination={selectedDestination}
           destinationChanged={setSelectedDestination}
@@ -58,7 +53,7 @@ const Travelogue: FC<DestinationsProps> = ({ data }) => {
           destinationChanged={setSelectedDestination}
           markers={data}
         />
-      </MapLayout>
+      </div>
     </>
   )
 }
