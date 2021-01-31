@@ -45,7 +45,7 @@ export const PostsList: FC<PostsListProps> = ({ posts, categories }) => {
         {activeCategory && (
           <CancelFilter
             onClick={clearCategory}
-            className="mr-4 w-8 h-8 fill-current cursor-pointer"
+            className="w-8 h-8 mr-4 cursor-pointer fill-current"
           />
         )}
       </div>
@@ -54,13 +54,13 @@ export const PostsList: FC<PostsListProps> = ({ posts, categories }) => {
         {postData.map(({ id, title, date, description, category }) => {
           return (
             <Link key={id} href="/scribbles/[id]" as={`/scribbles/${id}`}>
-              <div className="flex items-center justify-between p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow cursor-pointer md:flex-row transition duration-150 ease-in-out transform hover:scale-105 dark:border-dark-l dark:bg-dark-l">
+              <div className="flex justify-between p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow cursor-pointer md:items-center md:flex-row transition duration-150 ease-in-out transform hover:scale-105 dark:border-dark-l dark:bg-dark-l">
                 <div className="flex flex-col">
-                  <h3 className="text-xl">{title}</h3>
-                  <div className="text-sm">{description}</div>
-                  <FormattedDate dateString={date} className="text-sm" />
+                  <h3 className="text-2xl">{title}</h3>
+                  <div className="text-sm mt-2">{description}</div>
+                  <FormattedDate dateString={date} className="mt-2 text-sm" />
                 </div>
-                <div className="flex flex-row mt-4 md:mt-0 md:flex-col">
+                <div className="flex flex-row mt-2 md:mt-0 md:flex-col">
                   <Category label={category} onClick={() => {}} />
                 </div>
               </div>
