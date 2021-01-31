@@ -60,7 +60,7 @@ export const PostsList: FC<PostsListProps> = ({ posts, categories }) => {
                   <div className="text-sm mt-2">{description}</div>
                   <FormattedDate dateString={date} className="mt-2 text-sm" />
                 </div>
-                <div className="flex flex-row mt-2 md:mt-0 md:flex-col">
+                <div className="flex flex-row mt-2 ml-2 md:mt-0 md:flex-col">
                   <Category label={category} onClick={() => {}} />
                 </div>
               </div>
