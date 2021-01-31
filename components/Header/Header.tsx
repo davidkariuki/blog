@@ -61,7 +61,7 @@ export const Header: FC = () => {
         <ul
           className={`${
             isActive ? "hidden" : ""
-          } md:flex md:flex-row md:w-auto w-full border-gray-700 border-b md:border-b-0 md:border-t-0`}
+          } md:flex md:flex-row md:w-auto w-full border-gray-300 dark:border-gray-700 border-b md:border-b-0 md:border-t-0`}
         >
           {links.map(({ href, text }) => {
             return (
@@ -74,17 +74,23 @@ export const Header: FC = () => {
               </li>
             )
           })}
-          <li className="my-2 md:my-0">
+          <li className="mt-2 mb-4 md:my-0">
             {theme === "dark" && (
               <MoonSvg
                 className="inline-block cursor-pointer"
-                onClick={() => setTheme("light")}
+                onClick={() => {
+                  setTheme("light")
+                  setIsActive(!isActive)
+                }}
               />
             )}
             {theme === "light" && (
               <SunSvg
                 className="inline-block cursor-pointer"
-                onClick={() => setTheme("dark")}
+                onClick={() => {
+                  setTheme("dark")
+                  setIsActive(!isActive)
+                }}
               />
             )}
           </li>
