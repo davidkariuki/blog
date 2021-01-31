@@ -12,6 +12,9 @@ module.exports = {
           DEFAULT: "#F3F4F6",
         },
       },
+      height: {
+        "(screen-96)": "calc(100vh - 6rem)",
+      },
     },
   },
   variants: {

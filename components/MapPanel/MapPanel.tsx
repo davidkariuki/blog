@@ -26,7 +26,7 @@ export const MapPanel: FC<PanelProps> = ({
   }, [selectedDestination])
 
   return (
-    <div>
+    <div className="w-full md:w-1/4 h-1/2 md:h-(screen-96) overflow-y-scroll">
       {destinations.map((dest, index) => {
         return (
           <div key={index} onChange={() => destinationChanged(dest)}>

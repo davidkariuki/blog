@@ -2,6 +2,7 @@ import { useState, FC, useEffect } from "react"
 import ReactMapGL, { FlyToInterpolator } from "react-map-gl"
 import { Places } from "../Places"
 import { Destination } from "../../shared/types"
+import { useTheme } from "next-themes"
 
 export interface ViewportProps {
   width: number | string
@@ -26,7 +27,9 @@ export const Map: FC<MapProps> = ({
   selectedDestination,
   destinationChanged,
 }) => {
+  const { theme } = useTheme()
   const apiToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+  const [mounted, setMounted] = useState(false)
   const [viewport, setViewport] = useState<ViewportProps>({
     width: "100%",
     height: "100%",
@@ -36,6 +39,8 @@ export const Map: FC<MapProps> = ({
     bearing: 0,
     pitch: 0,
   })
+
+  useEffect(() => setMounted(true), [])
 
   useEffect(() => {
     if (selectedDestination) {
@@ -55,14 +60,20 @@ export const Map: FC<MapProps> = ({
   const markerClicked = (d: Destination) => destinationChanged(d)
 
   return (
-    <ReactMapGL
-      {...viewport}
-      onViewportChange={(v: ViewportProps) => setViewport(v)}
-      mapStyle="mapbox://styles/mapbox/dark-v9"
-      mapboxApiAccessToken={apiToken}
-      dragRotate={false}
-    >
-      <Places data={markers} onClick={(d) => markerClicked(d)} />
-    </ReactMapGL>
+    <div className="w-full md:w-3/4 h-1/2 md:h-full">
+      <ReactMapGL
+        {...viewport}
+        onViewportChange={(v: ViewportProps) => setViewport(v)}
+        mapStyle={
+          mounted && theme === "dark"
+            ? "mapbox://styles/mapbox/dark-v10"
+            : "mapbox://styles/mapbox/light-v10"
+        }
+        mapboxApiAccessToken={apiToken}
+        dragRotate={false}
+      >
+        <Places data={markers} onClick={(d) => markerClicked(d)} />
+      </ReactMapGL>
+    </div>
   )
 }

@@ -15,9 +15,15 @@ export const Places: FC<PlacesProps> = ({ data, onClick }) => {
       {data.map((place: Destination) => {
         const markerSvg =
           place.home === true ? (
-            <HomeSvg onClick={() => onClick(place)} />
+            <HomeSvg
+              className="cursor-pointer stroke-current text-yellow-600"
+              onClick={() => onClick(place)}
+            />
           ) : (
-            <PinSvg onClick={() => onClick(place)} />
+            <PinSvg
+              className="cursor-pointer stroke-current text-yellow-600"
+              onClick={() => onClick(place)}
+            />
           )
 
         return (
