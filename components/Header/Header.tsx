@@ -1,4 +1,4 @@
-import { FC, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import Link from "next/link"
 import MoonSvg from "../../public/images/moon.svg"
 import SunSvg from "../../public/images/sun.svg"
@@ -6,7 +6,10 @@ import { useTheme } from "next-themes"
 
 export const Header: FC = () => {
   const [isActive, setIsActive] = useState(true)
+  const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
+
+  useEffect(() => setMounted(true), [])
 
   const links = [
     {
@@ -75,7 +78,7 @@ export const Header: FC = () => {
             )
           })}
           <li className="mt-2 mb-4 md:my-0">
-            {theme === "dark" && (
+            {mounted && theme === "dark" && (
               <MoonSvg
                 className="inline-block cursor-pointer"
                 onClick={() => {
@@ -84,7 +87,7 @@ export const Header: FC = () => {
                 }}
               />
             )}
-            {theme === "light" && (
+            {mounted && theme === "light" && (
               <SunSvg
                 className="inline-block cursor-pointer"
                 onClick={() => {

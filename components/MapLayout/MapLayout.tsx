@@ -1,11 +1,5 @@
-import { FC, useEffect } from "react"
-import { gaInit, gaTrackPageView } from "../../lib/ga"
+import { FC } from "react"
 
 export const MapLayout: FC = ({ children }) => {
-  useEffect(() => {
-    gaInit()
-    gaTrackPageView()
-  }, [])
-
   return <div>{children}</div>
 }
