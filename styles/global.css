@@ -36,19 +36,10 @@ a {
 }
 
 img {
-  max-width: 100%;
-  display: block;
+  @apply block max-w-full;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 0.625rem;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--secondary-color);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
+  @apply w-3;
 }
