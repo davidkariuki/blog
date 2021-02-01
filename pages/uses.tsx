@@ -7,7 +7,7 @@ const Uses: FC = () => {
   return (
     <Layout>
       <NextSeo title="uses" canonical="https://davidkariuki.com/uses" />
-      <div className="container flex flex-col">
+      <div className="flex flex-col justify-center">
         <div className="bg-white dark:bg-dark-l shadow rounded-lg mb-8">
           <div className="p-4">
             <h3 className="text-xl font-bold">Hardware</h3>
@@ -36,7 +36,7 @@ const Uses: FC = () => {
           </ul>
         </div>
 
-        <div className="bg-white rounded-lg shadow dark:bg-dark-l">
+        <div className="mb-4 bg-white rounded-lg shadow dark:bg-dark-l">
           <div className="p-4">
             <h3 className="text-xl font-bold">Essential Software</h3>
           </div>
