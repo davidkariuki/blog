@@ -16,12 +16,12 @@ export const Places: FC<PlacesProps> = ({ data, onClick }) => {
         const markerSvg =
           place.home === true ? (
             <HomeSvg
-              className="cursor-pointer stroke-current text-yellow-600"
+              className="cursor-pointer stroke-current text-purple-700 dark:text-purple-300 dark:hover:text-light hover:text-dark"
               onClick={() => onClick(place)}
             />
           ) : (
             <PinSvg
-              className="cursor-pointer stroke-current text-yellow-600"
+              className="text-yellow-700 cursor-pointer stroke-current dark:text-yellow-600 dark:hover:text-light hover:text-dark"
               onClick={() => onClick(place)}
             />
           )
