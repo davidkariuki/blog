@@ -21,6 +21,7 @@ module.exports = {
     extend: {
       flexGrow: ["first"],
       margin: ["last"],
+      fill: ["hover", "focus"],
     },
   },
   plugins: [],
