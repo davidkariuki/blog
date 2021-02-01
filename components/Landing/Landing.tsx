@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export const Landing: FC = () => {
   return (
-    <div className="container flex flex-col justify-center">
+    <div className="flex flex-col justify-center">
       <p className="text-4xl font-extrabold mb-4">
         Hello, I'm{" "}
         <span className="text-yellow-700 dark:text-yellow-600">David</span>.
