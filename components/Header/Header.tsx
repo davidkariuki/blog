@@ -64,13 +64,13 @@ export const Header: FC = () => {
         <ul
           className={`${
             isActive ? "hidden" : ""
-          } md:flex md:flex-row md:w-auto w-full border-gray-300 dark:border-gray-700 border-b md:border-b-0 md:border-t-0`}
+          } list-none md:flex md:flex-row md:w-auto w-full border-gray-300 dark:border-gray-700 border-b md:border-b-0 md:border-t-0`}
         >
           {links.map(({ href, text }) => {
             return (
               <li className="my-2 md:my-0 md:pr-5" key={text}>
                 <Link href={href}>
-                  <div className="mr-8 font-bold border-b-2 border-transparent cursor-pointer last:mr-0 hover:border-yellow-600">
+                  <div className="mr-8 border-b-2 border-transparent cursor-pointer last:mr-0 hover:border-yellow-600">
                     {text}
                   </div>
                 </Link>

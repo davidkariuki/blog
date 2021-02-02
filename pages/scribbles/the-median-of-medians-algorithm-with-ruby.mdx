@@ -9,44 +9,44 @@ I stumbled across the median of medians algorithm when I was looking for an effi
 to calculate the nearest 20 cities to any city, given their latitude and longitude.
 
 It is a [selection algorithm](http://en.wikipedia.org/wiki/Selection_algorithm) that has a
-worst-case <span class="courier">O(n)</span> complexity for selecting the kth order statistic (kth smallest number) in an unsorted array with
+worst-case <span className="courier">O(n)</span> complexity for selecting the kth order statistic (kth smallest number) in an unsorted array with
 length n.
 
 Say you have an unsorted array and you would like to pick the fourth smallest element.
 One approach would be to just sort the array and pick the fourth
-element. However, the best case performance for this approach is <span class="courier">O(nlogn)</span>.
+element. However, the best case performance for this approach is <span className="courier">O(nlogn)</span>.
 
 <!-- more -->
 
 ### The algorithm
 
-1. If n is negligible, e.g. <span class="courier">n <= 5</span>, sort the array and return the kth
+1. If n is negligible, e.g. <span className="courier">n <= 5</span>, sort the array and return the kth
    element. (The complexity of sorting _small_ arrays is linear).
 2. Partition the array into sub-arrays of length 5.
 3. Sort each sub-array and select the median of each.
 4. Recursively find the median of the medians you found in 3.
-5. Loop through all <span class="courier">n-1</span> elements, comparing them with the median of medians m and create
-   two arrays <span class="courier">left</span> and <span class="courier">right</span>, where left contains all elements <span class="courier">< m</span>
-   and <span class="courier">right</span> contains all elements <span class="courier">> m</span>
-6. From 5, we can infer that the position of <span class="courier">m</span>, <span class="courier">p = |L| + 1</span>, where
-   <span class="courier">|L|</span> is the length of <span class="courier">left</span>. In other words, <span class="courier">m</span> is the <span class="courier">(|L| + 1)</span>th
+5. Loop through all <span className="courier">n-1</span> elements, comparing them with the median of medians m and create
+   two arrays <span className="courier">left</span> and <span className="courier">right</span>, where left contains all elements <span className="courier">< m</span>
+   and <span className="courier">right</span> contains all elements <span className="courier">> m</span>
+6. From 5, we can infer that the position of <span className="courier">m</span>, <span className="courier">p = |L| + 1</span>, where
+   <span className="courier">|L|</span> is the length of <span className="courier">left</span>. In other words, <span className="courier">m</span> is the <span className="courier">(|L| + 1)</span>th
    smallest element.
-7. If <span class="courier">k == p</span>, return <span class="courier">m</span>.
-8. If <span class="courier">k < p</span>, return the kth smallest element of <span class="courier">left</span>.
-9. If <span class="courier">k > p</span>, then return the <span class="courier">(k - p)</span>th smallest element of <span class="courier">right</span>.
+7. If <span className="courier">k == p</span>, return <span className="courier">m</span>.
+8. If <span className="courier">k < p</span>, return the kth smallest element of <span className="courier">left</span>.
+9. If <span className="courier">k > p</span>, then return the <span className="courier">(k - p)</span>th smallest element of <span className="courier">right</span>.
 
 ### An example
 
-Given an array of length <span class="courier">n = 10</span>: <span class="courier">[10, 6, 8, 3, 7, 1, 2, 4, 9, 5]</span>, we would like to find the kth smallest element, where <span class="courier">k = 3</span>.
+Given an array of length <span className="courier">n = 10</span>: <span className="courier">[10, 6, 8, 3, 7, 1, 2, 4, 9, 5]</span>, we would like to find the kth smallest element, where <span className="courier">k = 3</span>.
 
-- Split the array into two sub-arrays of size 5: <span class="courier">[10, 6, 8, 3, 7]</span> and <span class="courier">[1, 2, 4, 9, 5]</span>.
-- Sort each sub-array and select the medians: <span class="courier">[3, 6, 7, 8, 10]</span> and <span class="courier">[1, 2, 4, 5, 9]</span>, medians <span class="courier">7</span> and <span class="courier">4</span>.
-- Pick the median of the two medians <span class="courier">m = 4</span>.
+- Split the array into two sub-arrays of size 5: <span className="courier">[10, 6, 8, 3, 7]</span> and <span className="courier">[1, 2, 4, 9, 5]</span>.
+- Sort each sub-array and select the medians: <span className="courier">[3, 6, 7, 8, 10]</span> and <span className="courier">[1, 2, 4, 5, 9]</span>, medians <span className="courier">7</span> and <span className="courier">4</span>.
+- Pick the median of the two medians <span className="courier">m = 4</span>.
 - Loop over the initial array splitting it into two arrays:  
-  <span class="courier">left = [3, 1, 2]</span> and <span class="courier">right = [10, 6, 8, 7, 9, 5]</span>.
-- The position of <span class="courier">m, p = left.length + 1</span>
-- Since <span class="courier">k < p</span> we recursively find the kth smallest element of <span class="courier">left</span>.
-- Since <span class="courier">left.size <= 5</span>, we follow step 1: sort the array and return the kth element, <span class="courier">3</span>.
+  <span className="courier">left = [3, 1, 2]</span> and <span className="courier">right = [10, 6, 8, 7, 9, 5]</span>.
+- The position of <span className="courier">m, p = left.length + 1</span>
+- Since <span className="courier">k < p</span> we recursively find the kth smallest element of <span className="courier">left</span>.
+- Since <span className="courier">left.size <= 5</span>, we follow step 1: sort the array and return the kth element, <span className="courier">3</span>.
 
 ### The code
 

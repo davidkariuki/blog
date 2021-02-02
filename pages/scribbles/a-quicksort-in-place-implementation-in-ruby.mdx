@@ -5,9 +5,9 @@ date: May 4, 2014 18:35:38
 category: Ruby
 ---
 
-Quicksort is a popular [sorting algorithm](http://en.wikipedia.org/wiki/Sorting_algorithm) with <span class='courier'>O(nlogn)</span> best and average-case
-performance, and <span class='courier'>O(n<sup>2</sup>)</span> worst case performance when sorting
-<span class='courier'>n</span> elements.
+Quicksort is a popular [sorting algorithm](http://en.wikipedia.org/wiki/Sorting_algorithm) with <span className='courier'>O(nlogn)</span> best and average-case
+performance, and <span className='courier'>O(n<sup>2</sup>)</span> worst case performance when sorting
+<span className='courier'>n</span> elements.
 
 ## The Algorithm
 
@@ -148,8 +148,7 @@ array = [1, 2, 5, 3]; pivot = 2; new_pivot_index = 1
 ```
 
 We return the new pivot index to the calling function as now we have
-successfully partitioned the array around the pivot, <span
-class='courier'>2</span>.
+successfully partitioned the array around the pivot, <span className='courier'>2</span>.
 
 Next we call sort! recursively on the
 elements to the left of 2. However since

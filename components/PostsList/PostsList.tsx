@@ -56,11 +56,11 @@ export const PostsList: FC<PostsListProps> = ({ posts, categories }) => {
             <Link key={id} href="/scribbles/[id]" as={`/scribbles/${id}`}>
               <div className="flex justify-between p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow cursor-pointer md:items-center md:flex-row transition duration-150 ease-in-out transform hover:scale-105 dark:border-dark-l dark:bg-dark-l">
                 <div className="flex flex-col">
-                  <h3 className="text-2xl">{title}</h3>
-                  <div className="text-sm mt-2">{description}</div>
+                  <h3 className="mt-0">{title}</h3>
+                  <div className="text-sm">{description}</div>
                   <FormattedDate dateString={date} className="mt-2 text-sm" />
                 </div>
-                <div className="flex flex-row mt-2 ml-2 md:mt-0 md:flex-col">
+                <div className="flex flex-row ml-2 md:mt-0 md:flex-col">
                   <Category label={category} onClick={() => {}} />
                 </div>
               </div>
