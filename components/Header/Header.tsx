@@ -3,6 +3,7 @@ import Link from "next/link"
 import MoonSvg from "../../public/images/moon.svg"
 import SunSvg from "../../public/images/sun.svg"
 import { useTheme } from "next-themes"
+import { Transition } from "@headlessui/react"
 
 export const Header: FC = () => {
   const [isActive, setIsActive] = useState(true)
@@ -61,10 +62,16 @@ export const Header: FC = () => {
             <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />
           </svg>
         </div>
-        <ul
-          className={`${
-            isActive ? "hidden" : ""
-          } list-none md:flex md:flex-row md:w-auto w-full border-gray-300 dark:border-gray-700 border-b md:border-b-0 md:border-t-0`}
+        <Transition
+          as="ul"
+          className="pl-0 list-none md:flex md:flex-row md:w-auto w-full border-gray-300 dark:border-gray-700 border-b md:border-b-0 md:border-t-0"
+          show={!isActive}
+          enter="transition duration-150 ease-out"
+          enterFrom="transform scale-95 opacity-0"
+          enterTo="transform scale-100 opacity-100"
+          leave="transition duration-125 ease-out"
+          leaveFrom="transform scale-100 opacity-100"
+          leaveTo="transform scale-95 opacity-0"
         >
           {links.map(({ href, text }) => {
             return (
@@ -97,7 +104,7 @@ export const Header: FC = () => {
               />
             )}
           </li>
-        </ul>
+        </Transition>
       </nav>
     </div>
   )
