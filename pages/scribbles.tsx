@@ -16,7 +16,7 @@ const Scribbles: FC<ScribblesProps> = ({ allPostsData }) => {
   return (
     <Layout>
       <NextSeo
-        title="scribbles"
+        title="Scribbles"
         canonical="https://davidkariuki.com/scribbles"
       />
       <PostsList categories={categories} posts={allPostsData} />

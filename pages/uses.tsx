@@ -17,9 +17,9 @@ const Uses: FC = () => {
               while.
             </li>
             <li className="mb-2">
-              <b>Ultrabook</b>: LG gram 17 2020, also running Pop!_OS. This is
-              my all-time favourite laptop because of its 1.3kg weight and
-              amazing screen.
+              <b>Ultrabook</b>: LG gram 17 2020, also running Manjaro Linux.
+              This is my all-time favourite laptop because of its 1.3kg weight
+              and amazing screen.
             </li>
             <li className="mb-2">
               <b>Laptop</b>: Macbook Pro 2016, only used for compatibility
@@ -27,9 +27,7 @@ const Uses: FC = () => {
               them up because I seem to be allergic to Macbook trackpads.
             </li>
             <li className="mb-2">
-              <b>Monitor</b>: ASUS ROG Swift PG279Q x2 (27" 1440p), but plan to
-              switch to a 49" ultrawide curved screen when I have the space for
-              it.
+              <b>Monitor</b>: ASUS ROG Swift PG279Q x2 (27" 1440p){" "}
             </li>
           </ul>
         </div>
